@@ -22,16 +22,8 @@
 </div>
 <hr align="center" style="border: 4px; width: 90%; height: 100%;">
 
-
-<!-- 					<li><a href="/storen/MainStore.laf?SITE=01">위치안내</a></li> -->
-<!-- 					<li><a href="/storen/StoreParking.laf?SITE=01">주차안내</a></li> -->
-<!-- 					<li><a href="/storen/StoreGuide.laf?SITE=01">내부안내도</a></li> -->
-<!-- 					<li><a href="/storen/StoreEvent.laf?SITE=01">매장소식&행사</a></li> -->
-<!-- 					<li><a href="/storen/StoreService.laf?SITE=01">매장서비스</a></li> -->
-
-
 <!-- 지도를 표시 할 div -->
-<div id="map" style="width:950px;height:420px;left: 25%;">
+<div id="map" style="width:950px; height:420px; left: 25%;">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92b17a1330650b99d134f417d561252d"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -42,7 +34,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
-var iwContent = '<div style="padding:5px; font-style: 14px !important;">교보문고 광화문점</div>', 
+var iwContent = '<div style="padding:5px; font-style: 17px !important; margin: -3px 0px 0px 14px;">책사조 광화문점</div>', 
 				// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능
     iwPosition = new kakao.maps.LatLng(37.570942, 126.977763), //인포윈도우 표시 위치입니다
     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -80,7 +72,7 @@ var infowindow = new kakao.maps.InfoWindow({
 	<br>
 	<b style="font-size: 18px;">버스로 오시려면</b>
 	<br>
-	<b>교보빌딩 앞</b>
+	<b>책사조빌딩 앞</b>
 	<br>
 
 	<br> 지선 : 0015(남산방향), 0212, 1011, 1012, 1020, 7012, 7018

@@ -42,7 +42,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
-var iwContent = '<div style="padding:5px; font-style: 14px !important;">교보문고 영등포점</div>', 
+var iwContent = '<div style="padding:5px; font-style: 17px !important; margin: -3px 0px 0px 14px;">책사조 영등포점</div>', 
 				// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능
     iwPosition = new kakao.maps.LatLng(37.517125, 126.903795), //인포윈도우 표시 위치입니다
     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
@@ -80,7 +80,7 @@ var infowindow = new kakao.maps.InfoWindow({
 	<br>
 	<b style="font-size: 18px;">버스로 오시려면</b>
 	<br>
-	<b>교보빌딩 앞</b>
+	<b>책사조빌딩 앞</b>
 	<br>
 
 	<br> 지선 : 0015(남산방향), 0212, 1011, 1012, 1020, 7012, 7018
