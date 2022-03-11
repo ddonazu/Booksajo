@@ -77,11 +77,9 @@
 
 <style>
 #content {
-	width: 800px;
 	margin: 0 auto;
 	float: none;
-	height: 800px;
-	border: solid 1px gray;
+	height: 100%;
 }
 
 table {
@@ -121,7 +119,6 @@ td {
 }
 
 #img1 {
-	filter: opacity(0.6) drop-shadow(0 0 0 green);
 	width: 100px;
 	height: 40px;
 	margin-top: 30px;
@@ -163,15 +160,17 @@ td {
 	width: 224px;
 	height: 30px;
 	font-size: 13px;
-	
-	
-		
-
   border: 0;
   border-radius: 5px;
   outline: none;
   padding-left: 10px;
   background-color: rgb(233, 233, 233);
+}
+
+#signInForm {
+	width: 100%;
+	margin-top: 309px;
+	margin-bottom: 100px;
 	
 }
 </style>
@@ -248,12 +247,14 @@ td {
 				<tr>
 					<td class="title">이메일</td>
 					<td class="right" colspan="2"><input id="email" name="email"
-						type="text" required></td>
+						type="text" required><input id="postbtn" type="submit"
+						name="mail" onclick="" value="인증메일 발송"></td>
+
 				</tr>
 
 			</table>
-			<input id="submitbtn" type="submit" value="J o i n"
-				style="width: 400px; margin: 20px 0 0 45px; height: 40px; font-size: 15px; font-family: impact; color: #555" />
+			<input id="submitbtn" type="submit" value="가 입"
+				style="width: 380px; margin: 20px 0 0 65px; height: 35px; font-size: 13px; font-family: impact; font-weight: bolder;;" />
 		</form>
 	</div>
 </body>

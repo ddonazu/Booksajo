@@ -18,11 +18,10 @@
 
 <style>
 #content {
-	width: 800px;
-	margin: 0 auto;
-	float: none;
-	height: 800px;
-	border: solid 1px gray;
+    width: 800px;
+    margin: 340px 0 120px 560px;
+    float: none;
+    height: 100%;
 }
 
 table {
@@ -41,8 +40,6 @@ input {
 	width: 225px;
 	height: 30px;
 	margin-left: 50px;
-	
-		
   font-size: 15px;
   border: 0;
   border-radius: 5px;
@@ -61,7 +58,6 @@ td {
 }
 
 #img1 {
-	filter: opacity(0.6) drop-shadow(0 0 0 green);
 	width: 100px;
 	height: 40px;
 	margin-top: 30px;
@@ -116,9 +112,6 @@ td {
 	letter-spacing:3px;
 	color: #555;
 }
-
-
-
 </style>
 
 </head>
@@ -130,8 +123,7 @@ td {
 
 			<legend>
 				<img id="img1" src="resources/img/logo3.png" /><br /> <span
-					style="font-size: 20px; font-family: impact; color: #555;">Member
-					Login</span>
+					style="font-size: 20px; font-family: impact; color: #555;">MEMBER JOIN</span>
 
 			</legend>
 			
@@ -160,8 +152,8 @@ td {
 				</tr>
 
 			</table>
-			<input id="submitbtn" type="submit" value="L o g i n"
-				style="width: 380px; margin: 20px 0 0 45px; height: 35px; font-size: 15px; font-family: impact; color: #555" />
+			<input id="submitbtn" type="submit" value="로그인"
+				style="width: 380px; margin: 20px 0 0 45px; height: 35px; font-size: 13px; font-family: impact; font-weight: bolder;" />
 		</form>
 	</div>
 </body>

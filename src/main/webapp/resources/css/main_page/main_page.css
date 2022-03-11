@@ -251,7 +251,7 @@ label {
 .today_content_list li {
     border: solid 1px #888;
     display: inline-block;
-    height: 250px;
+    height: 260px;
     width: 200px;
     position: relative;
     text-align: center;
@@ -292,9 +292,9 @@ label {
 }
 
 .book_thumbnail img {
-    width: 120px;
-    min-width: 120px;
-    max-height: 150px;
+    width: 122px;
+    min-width: 117px;
+    max-height: 158px;
     vertical-align: top;
 }
 
