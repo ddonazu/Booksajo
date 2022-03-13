@@ -12,6 +12,14 @@
 }
 
 
+#content {
+	width: 1000px; 
+	margin: 0 auto;
+	float: none;
+}
+
+
+
 #content a,
 #content a:active,
 #content a:visited {

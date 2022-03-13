@@ -2,13 +2,13 @@
 
 
 #container{
-	width: 100%;
+	width: 500px;
  	margin: 260px 0px;
 	margin-top: 300px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;
-	
+	height: 1400px;
 }
 
 

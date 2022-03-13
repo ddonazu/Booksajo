@@ -15,17 +15,7 @@
 <title>Insert title here</title>
 <style>
 
-#container {
-	height: 1400px;
-	/* 푸터바의 백그라운드 색상은  콘테이너의 사이즈가 바디 부분보다 높이가 작아서 그런다. 이부분을 늘려주면 얼추 맞아보임 */
-}
 
-
-#content {
-	width: 1000px;
-	margin: 0 auto;
-	float: none;
-}
 
 
 </style>
