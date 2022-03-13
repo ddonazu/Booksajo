@@ -5,16 +5,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/main_page/main_page.css" />
+
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/main_page/main_page_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/main_page/main_page_mobile.css">
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>Insert title here</title>
 <style>
+
+#container {
+	height: 1400px;
+	/* 푸터바의 백그라운드 색상은  콘테이너의 사이즈가 바디 부분보다 높이가 작아서 그런다. 이부분을 늘려주면 얼추 맞아보임 */
+}
+
+
 #content {
 	width: 1000px;
 	margin: 0 auto;
 	float: none;
 }
+
+
 </style>
 
 </head>

@@ -8,10 +8,7 @@
 
 <head>
 
-<!--     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
- <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 
@@ -23,9 +20,9 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<link rel="stylesheet" type="text/css" href="resources/css/header.css">
 
-
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/header_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/header_mobile.css">
 
 
 

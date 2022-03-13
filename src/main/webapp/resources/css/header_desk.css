@@ -1,4 +1,5 @@
 
+
 header{
 	position: fixed;
     width: 100%;
@@ -35,7 +36,7 @@ float: left;
 #b{
 margin: 0% 10%;
 padding-left:5%;
-width:500px;
+width:300px;
 float: left;
 /* 서치내부부분 */
 }
