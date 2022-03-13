@@ -1,0 +1,117 @@
+
+
+header{
+	position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0%;
+    background-color: white;
+}
+
+
+.btn{
+float: right;
+position: relative;
+left: 10px;
+bottom: 1px;
+background-color: #ff8080;
+
+}
+
+#c {
+	border: none;
+	margin-left: 850px;
+	padding-right: 10px;
+}
+
+  
+#a{
+/* 로고부분 */
+width:100%;
+border: none;
+float:left;
+} 
+ 
+#b{
+margin: 0% 8%;
+padding-left:0%;
+width:500px;
+float: left;
+서치내부부분
+}
+
+ .d-flex{
+/* 서치박스부분 */
+padding:0px 35px;
+width: 400px;
+position: relative; left: 2%;
+/* border: 1px solid; */
+}
+
+/* ul li{
+	margin-left: 30px;
+	font-size: 11px;
+	css가 전체가 다 적용된다..... 헤더 푸터.. 
+} */
+
+ ul li a{
+	/* li안에 a요소 */
+	color: #aaa;
+	font-size: 7px;
+	font-weight: bold;
+	/* 상단 나브바 사이즈 조절 */
+}
+
+#f{
+	position:relative;
+	padding-left: 1px;
+
+	
+
+}
+
+#g{
+	position: relative;
+	margin-left:1px;
+}
+
+
+a{
+/* 상단이랑 아래 버튼이 둘다 동시에 적용됨 */
+
+font:bold;
+}
+
+
+#c{
+border: none;
+color: white;
+}
+
+.a1{
+
+padding:10px;
+background-color: white;
+color: black;
+}
+
+
+
+.a2{
+border: 1px solid;
+padding: 5px;
+background-color: #6662a1;
+color: white;
+margin-left: 0px;
+ 
+}
+
+.a2 a{
+	font-size: small;
+	font-weight: bold;
+	color: white;
+/* 	text-decoration: none; */
+}
+.dropdown-menu{
+	left: 14px;
+}

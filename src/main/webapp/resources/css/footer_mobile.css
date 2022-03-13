@@ -1,0 +1,46 @@
+
+ 
+ 
+#footerimg{
+	/* 로고영역 */
+	margin-top: 20px;
+
+}
+
+p{
+padding-bottom: 7px;
+padding-right: 10%;
+color: #a7a69d;
+}
+
+.footer {
+	/* 푸터바  */
+border: none;
+padding: 5px;
+background-color: #a7a69d;
+width: 100%;
+
+
+
+}
+
+
+.a3{
+	/* 푸터바 폰트 색상 */
+color: #eee;
+text-decoration: none;
+font-size: x-small;
+
+
+}
+
+footer.a3 li a{
+	/* 푸터바안에 글자 링크 설정 */
+margin-left: 2px;
+	font-size: 6px;
+	color: #eee;
+}
+
+#copy{
+	margin-left: 150px;
+}

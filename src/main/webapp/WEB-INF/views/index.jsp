@@ -5,16 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/main_page/main_page.css" />
+
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/main_page/main_page_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/main_page/main_page_mobile.css">
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>Insert title here</title>
 <style>
-#content {
-	width: 1000px;
-	margin: 0 auto;
-	float: none;
-}
+
+
+
+
 </style>
 
 </head>
