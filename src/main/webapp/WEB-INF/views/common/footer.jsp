@@ -26,7 +26,7 @@
 	<!-- Copyright -->
 	<div id="footerimg">
 		<img src="resources/img/logo3.png" width="110px" height="45px"
-			style="float: left; margin-left: 5%;">
+			style="float: left; margin-left: 9%;">
 	</div>
 
 	<p>
