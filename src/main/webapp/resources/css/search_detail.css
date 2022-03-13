@@ -1,3 +1,8 @@
+div#title {
+    margin-top: 199px;
+}
+
+
 #inlineside{
 	/* div로 다 넣고 인라인 플럭스해주면 inline flex 옆으로 놔짐 inline은 세로로 놔짐 */
 	display: inline;
