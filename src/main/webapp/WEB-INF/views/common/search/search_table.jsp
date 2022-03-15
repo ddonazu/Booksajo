@@ -5,8 +5,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css"
-	href="resources/css/search_table.css">
+
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/search_table_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/search_table_mobile.css">
 
 
  
@@ -79,7 +80,7 @@ $( document ).ready(function() {
  			    		html += '</br><b><a href="search_detail?isbn='+isbn.substr(11,23)+'" style="color: #3A60DF;">' + data.documents[k].title + '</a></b></br></br>';
 			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음&nbsp;&nbsp;|&nbsp;&nbsp;' + data.documents[k].publisher + '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;'+ datestr2 +'&nbsp;&nbsp;</p>';
 			    		html += '</td>';
-			    		html += '<td><img src="resources/img/review/review'+[k]+'.png" style="width: 110px;" height="125px;"/></td>';
+			    		html += '<td><img src="resources/img/review/review'+[k]+'.png" id="reviewimggg" style="width: 110px;" height="125px;" /></td>';
 			    		html += '<td><p id="price"></br></br>'+ data.documents[k].price + '원</br></p><p id="sale"><b>'+ data.documents[k].sale_price +'원[10%↓]</b></p>'+data.documents[k].status+'</td>';
 			    		html += '<td></br><input type="submit" value="장바구니 담기" id="shopget" class="btn_blue" /></br></br><input type="button" value="바로구매" id="payment" name="'+isbn+'" class="btn_blue2" /></td>';
 			    		html += '<td><input type="hidden" value="'+isbn+'" name="isbn" id="'+isbn+'" /></td>';
@@ -116,6 +117,7 @@ $( document ).ready(function() {
 <style>
 
 </style>
+
 
 <td style="">
 <b style="color: #3A60DF;"><a href="#" style=""></a></b>
