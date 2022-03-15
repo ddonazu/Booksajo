@@ -34,9 +34,10 @@ float: left;
 } 
  
 #b{
-	margin: 0% 10%;
-	padding-left:5%;
-	width: 496px;
+/* 	margin: 0% 10%; */
+/* 	padding-left:5%; */
+	margin-right: 110px;
+	width: 313px;
 	float: left;
 /* 서치내부부분 */
 }
@@ -59,15 +60,16 @@ float: left;
  ul li a{
 	/* li안에 a요소 */
 	color: black;
-    font-size: 11.5px;
+    font-size: 11px;
 /* 	font-weight: bold; */
 	/* 상단 나브바 사이즈 조절 */
 }
 
+
 #f{
 	position:relative;
-	left: 20%;
-	padding-left: 15px;
+	left: 438px;
+/* 	padding-left: 15px; */
 
 	
 
@@ -75,8 +77,8 @@ float: left;
 
 #g{
 	position: relative;
-	left: 800px;
-	margin-left: 30px;
+	left: 891px;
+/* 	margin-left: 30px; */
 }
 
 
@@ -86,6 +88,9 @@ a{
 font:bold;
 }
 
+.logo2{
+	margin-left: 300px;
+}
 
 #c{
 border: none;
@@ -118,4 +123,37 @@ margin-left: 0px;
 }
 .dropdown-menu{
 	left: 14px;
+	min-width: 3rem;
 }
+/* #login{ */
+/* 	position: relative; */
+/* 	left: 891px; */
+/* 	display: inline-block; */
+/*     padding: 4px 5px 1px; */
+/*     margin-top: -5px; */
+/*     border: 1px solid #ddd; */
+/*     line-height: 12px; */
+/*     background-color: #fff; */
+/* } */
+
+/* #logout{ */
+/* 	position: relative; */
+/* 	left: 891px; */
+/* 	display: inline-block; */
+/*     padding: 4px 5px 1px; */
+/*     margin-top: -5px; */
+/*     border: 1px solid #ddd; */
+/*     line-height: 12px; */
+/*     background-color: #fff; */
+/* } */
+
+/* #admin{ */
+/* 	position: relative; */
+/* 	left: 891px; */
+/* 	display: inline-block; */
+/*     padding: 4px 5px 1px; */
+/*     margin-top: -5px; */
+/*     border: 1px solid #ddd; */
+/*     line-height: 12px; */
+/*     background-color: #fff; */
+/* } */
