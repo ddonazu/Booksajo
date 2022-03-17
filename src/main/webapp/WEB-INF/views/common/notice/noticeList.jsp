@@ -89,8 +89,7 @@
 				</c:otherwise>
 			</c:choose>		
 			<label>내용</label>
-			<input type="text" name="sk" style="width: 150px;" maxlength="50" />
-			<input type="submit" name="btn_search" value="검색" />
+			<input type="text" name="sk" style="width: 150px;" maxlength="50" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="btn_search" value="검색" />
 		</form>
 	</div>
 
