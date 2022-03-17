@@ -83,8 +83,8 @@
 }
 
 table {
-	width: 900px;
-	height: 400px;
+	width: 650px;
+	height: 200px;
 }
 
 .title {
@@ -183,8 +183,7 @@ td {
 
 			<legend>
 				<img id="img1" src="resources/img/logo3.png" /><br /> <span
-					style="font-size: 20px; font-family: impact; color: #555">Member
-					Join</span>
+					style="font-size: 20px; font-family: impact; color: #555">회 원 가 입</span>
 			</legend>
 			<table>
 				<tr>

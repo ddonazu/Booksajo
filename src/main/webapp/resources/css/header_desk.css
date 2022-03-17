@@ -36,7 +36,7 @@ float: left;
 #b{
 /* 	margin: 0% 10%; */
 /* 	padding-left:5%; */
-	margin-right: 110px;
+	margin-right: 214px;
 	width: 313px;
 	float: left;
 /* 서치내부부분 */
@@ -44,10 +44,10 @@ float: left;
 
 .d-flex{
 /* 서치박스부분 */
-	padding: 20px 84px;
-	width: 600px;
+	padding: 19px 84px;
+	width: 650px;
 	position: relative; 
-	left: 10%;
+	left: 9%;
 /* border: 1px solid; */
 }
 

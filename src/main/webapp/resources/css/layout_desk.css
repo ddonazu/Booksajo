@@ -4,7 +4,7 @@
 #container{
 	width: 100%;
 /*  	margin: 260px 0px; */
-	margin-top: 207px;
+	margin-top: 210px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;
@@ -15,7 +15,7 @@
 #content{
 	margin-top:5px;
 	width:100%;
-	margin-left:5px;
+/* 	margin-left:5px; */
 	float: left;
 /* 	border: 2px solid #bcbcbc; */
 	height: 100%;

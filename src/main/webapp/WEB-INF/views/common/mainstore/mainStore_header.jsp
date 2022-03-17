@@ -31,14 +31,15 @@
 			</div>
 			
 			<nav>
-			<h3><a class="dropdown-toggle" data-toggle="dropdown" role="button" href="" aria-expanded="false" onmouseover="drop(1);"
-						  >매장안내</a>
+			<div class="top1">
+			<h3><a class="dropdown-toggle" data-toggle="dropdown" role="button" href="" aria-expanded="false" onmouseover="drop(1);">매장안내</a>
 					<ul class="dropdown-menu">
 						<li style="font-size: 12px;"><a href="mainStore1" data-ga-label="">광화문점</a></li>
 						<li style="font-size: 12px;"><a href="mainStore2" data-ga-label="">영등포점</a></li>					
 						<li style="font-size: 12px;"><a href="mainStore3" data-ga-label="">강남점</a></li>
 					</ul>
 			</h3>
+			</div>
 			</nav>
 			
 			<ul class="gnb" style="list-style: none;">

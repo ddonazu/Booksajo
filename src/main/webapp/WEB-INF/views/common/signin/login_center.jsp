@@ -17,6 +17,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
+#loginProc{
+	width: 100%;
+}
+
 #content {
     width: 800px;
     margin: 340px 0 120px 560px;
