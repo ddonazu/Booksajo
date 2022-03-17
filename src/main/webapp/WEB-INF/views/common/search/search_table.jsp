@@ -10,42 +10,25 @@
 <link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/search_table_mobile.css">
 
 
- 
-
 <script>
-
-
 
 $( document ).ready(function() {
 	var keyword = '${search}';
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
 
 	function categoryget() {
-		//특정카테고리 클릭시 자바내부에서 카테고리 가지고가서 isbn검색으로 바꿔여서 여기 카카오 API에 넣어서 뿌리기. 
 		
 	}
-	
-/* 	$('#payment').on('click', function(){
-		window.location.href = 'payment.jsp'
-	 });
- */
- 
+
 	$(document.body).delegate('#payment', 'click', function(e) {
 		
-		 //console.log("ddddd"); 
-		 //val는 안돼넹.. id는 받아오는뎅
-		 
-
-		// var id_by_name = document.getElementsByName('isbn');
-		 window.location.href = 'payment?isbn='+this.name; //클릭한 것의 네임을 가져와라...this=클릭한것 
-		
-		 //보내주기 다음페이지로 */
+		//클릭한 것의 네임을 가져와라...this=클릭한 요소
+		 window.location.href = 'payment?isbn='+this.name;  		
 		 
 		});
 	
-
- 
-	//검색 함수
+	
+	//키워드검색 함수
 	function searchData(keyword){
 		$.ajax({
 	        type: 'POST',
@@ -72,9 +55,6 @@ $( document ).ready(function() {
 			    		html +='<form action="shoplist" method="post">';
 		    			html +='<table>';
 		    			html += '<tr height="180px">';
-			    		//html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
-			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
- 			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
 			    		html += '<td><a href="search_detail?isbn='+isbn.substr(11,23)+'"><img src=' + data.documents[k].thumbnail +'/></a></td>';
  			    		html += '<td>';
  			    		html += '</br><b><a href="search_detail?isbn='+isbn.substr(11,23)+'" style="color: #3A60DF;">' + data.documents[k].title + '</a></b></br></br>';
@@ -84,39 +64,27 @@ $( document ).ready(function() {
 			    		html += '<td><p id="price"></br></br>'+ data.documents[k].price + '원</br></p><p id="sale"><b>'+ data.documents[k].sale_price +'원[10%↓]</b></p>'+data.documents[k].status+'</td>';
 			    		html += '<td></br><input type="submit" value="장바구니 담기" id="shopget" class="btn_blue" /></br></br><input type="button" value="바로구매" id="payment" name="'+isbn+'" class="btn_blue2" /></td>';
 			    		html += '<td><input type="hidden" value="'+isbn+'" name="isbn" id="'+isbn+'" /></td>';
-			    	//	html += '<td>' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br><input type="submit" value="장바구니담기" name="'+data.documents[k].isbn+'" /><input type="hidden" name="'+isbn+'" value="'+isbn+'" /></br></br><input type="submit" value="바로구매" name="payment"  /></td>';
 			    		html += '</tr>';
 			    		html +='</table>';
 			    		html +='</form>';
+			    		//총 키워드에 대한 건수 데이터
 		    			cnt += data.meta.total_count +'건';
-		    	/* console.log(data.meta.total_count); */
 		    } 
 		    	
-		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
-		    	//변수는 아무거나 선언해서 저렇게 
-		    	//동적과 정적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
 		    $('#cnt').html(cnt);
 	    	$('#getList').html(html);
 
-	    	/*  	$('<input type="button" value="바로구매">').appendTo('body').submit(); */
 	    }).fail(function (error) {
 	    });
 		
 	}
-
 	
 });
 
 
-
-//총 검색 건수 가져오기.meta 에서 얻을수있었음.
-/* 가져와서 코드블럭으로 넣어주기.  */
 </script> 
 
 
-<style>
-
-</style>
 
 
 <td style="">

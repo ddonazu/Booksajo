@@ -108,7 +108,6 @@ var sessionId = '<%=userId%>';
 						function testData(isbn) {
 						
 							var word = "";
-							console.log("키워드뽑아주는 함수들어왔음" + isbn);
 							$.ajax({ 
 								type : "POST",
 								url : "/booksajo/test/search_keyword/",

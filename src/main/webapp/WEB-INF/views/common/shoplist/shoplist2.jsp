@@ -25,9 +25,7 @@
 			var total = 0 * 1;
 			for (var i = 0; i < chk_arr.length; i++) {
 				total += chk_arr[i] * 1;
-				/* console.log(chk_arr[i]); */
-				//console.log(typeof(chk_arr[i])); 타입이 스트링이네여.. 
-			//console.log(total); //결과확인
+
 			document.exf1.t1.value = total;
 			document.exf1.t2.value = total + 2500;
 			console.log("t1의값:"+document.exf1.t1.value);
@@ -137,7 +135,6 @@
 				<input type="hidden" name="selectisbn" value="${shoplist.bsjselectbook_isbn }" />
 			</tr>
 
-			<%-- <%=total%> = ${shoplist.bsjselectbook_price * shoplist.bsjselectbook_count } --%>
 
 		</c:forEach>
 </table>

@@ -155,34 +155,22 @@ public class SearchServiceImpl implements SearchService {
 
 			String strJson = jstr;
 
-			// 2. Parser
 			JSONParser jsonParser = new JSONParser();
 
-			// 3. To Object
 			Object obj = jsonParser.parse(strJson);
 
-			// 4. To JsonObject
 			JSONObject jsonObj = (JSONObject) obj;
 
-			// print
-			System.out.println(jsonObj.get("response")); // 리스폰안에들어간 리퀘스트가 출력됨
+			//System.out.println(jsonObj.get("response")); 
 
 			Object responseObj = jsonObj.get("response");
 			JSONObject json1 = (JSONObject) responseObj;
 
 			System.out.println();
 
-			System.out.println("json1.get아이템:" + json1.get("items")); // sim
+			//System.out.println("json1.get아이템:" + json1.get("items")); 
 
-			// 이 jason어레이 구조를 출력하고싶으면 객체를 어레이로 강제 형변환을 하고.
-			// 이걸 포문을 돌려주면 꺼내서 보면 다 꺼내쥠!
 			JSONArray jarr = (JSONArray) json1.get("items");
-
-			// 이거는 리스트를 만들어서 리스트에 인덱스안 안에 정보 다 쌓이도록하는거고...
-			// 내부리스트가 있느것은 제이슨 오브젝트타입에서 겟으로 얻어온 다중구조를 오브젝트로 담아주고 -> 그 담아준것을 다시 제이슨오브젝트로
-			// 강제형변환해준것으로 변수다시 담아주고. 이렇게 내부로 들어가기
-
-			// 이거는 제이슨 자료가 여러개가아니야 딱 한 도서 정보만 나오는 거니까... 포문으로 돌릴 이유가없다. 하지만 리스트는 돌려야함
 
 			SearchView sv = new SearchView();
 
@@ -194,62 +182,6 @@ public class SearchServiceImpl implements SearchService {
 
 			}
 
-			/*
-			 * for (JSONObject objarr : jarr) {
-			 * 
-			 * System.out.println("obj2:"+objarr);
-			 * 
-			 * JSONObject json2obj = (JSONObject) obj2;
-			 * 
-			 * System.out.println("json2obj:"+json2obj.get("item"));
-			 * 
-			 * JSONObject itemword = (JSONObject) json2obj.get("word");
-			 * 
-			 * System.out.println("가중치1:"+itemword.get("weight"));
-			 * System.out.println("키워드1:"+itemword.get("word"));
-			 * //System.out.println("아이템1:"+jsonitem.get("item")); //이미 item내부라서 없는건가봄..
-			 * 
-			 * 
-			 * //제이슨오브젝트타입-> 어레이 jarr2 = (JSONArray) itemword.get("word"); // 다시 오브젝트로 담아주고
-			 * -> 제이슨오브젝트로 강제형변환
-			 * 
-			 * 
-			 * 
-			 * }
-			 * 
-			 * 
-			 * 
-			 * 
-			 * /*for (Object obj3 : jarr2) { JSONObject json3obj = (JSONObject) obj3; //제이슨
-			 * 오브젝트로부터 다시 겟으로 얻기 내부것 //JSONObject jsonweight = (JSONObject)
-			 * json3obj.get("weight"); JSONObject jsonword = (JSONObject)
-			 * json3obj.get("word"); //System.out.println("가중치2:"+jsonweight.get("weight"));
-			 * System.out.println("키워드2"+jsonword.get("word")); }
-			 */
-
-			/*
-			 * for (Object obj3 : jarr2) {
-			 * 
-			 * System.out.println(obj3); JSONObject json3obj = (JSONObject) obj3; JSONObject
-			 * jsonweight = (JSONObject) json3obj.get("weight"); JSONObject jsonword =
-			 * (JSONObject) json3obj.get("word");
-			 * System.out.println("가중치2:"+jsonweight.get("weight"));
-			 * System.out.println("키워드2"+jsonword.get("word"));
-			 * 
-			 * // 키워드 오브젝트 담아줄 리스트 멩글기
-			 * 
-			 * 
-			 * // 하나씩 쌓아주는 작업 키워드 //SearchView keyword = new SearchView();
-			 * //keywordlist.add((Map<String, Object>) jsonword.get("word")); // 인덱스 0번에 하나씩
-			 * 쌓는다... 끝까지 word쌓기
-			 * 
-			 * //System.out.println("최종담은것:" + jsonword.toString());
-			 * 
-			 * // jsonitem가 안들어가는 이유는 이거는 제이슨 오브젝트이니까 타입을 JsonObject로 만들어줘야 담고. //
-			 * ArrayList는 리스트니까 Jsonlist타입인 jarr를 담을수있는거고 . 담을수있는 타입을 잘 구분해야한다. // 위에서 다쌓아준
-			 * 것을 변수모음 장소에다가 저장해준다. 꺼내쓸수있게 //keyword.setWordlist(keywordlist); //
-			 * System.out.println(keyword.getWordlist().toString()); }
-			 */
 		} catch (
 
 		Exception e) {
