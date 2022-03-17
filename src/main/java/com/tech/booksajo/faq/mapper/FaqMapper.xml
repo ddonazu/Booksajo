@@ -5,7 +5,23 @@
 
 
 <mapper namespace="com.tech.booksajo.faq.mapper.FaqMapper">
-	<select id="getList" resultType="map">
 
+	<select id="faqlist" resultType="com.tech.booksajo.faq.vo.FaqDto">
+		SELECT * FROM FAQ ORDER BY F_ID DESC
 	</select>
+	
+	<update id="faqreply">
+		UPDATE FAQ SET F_REPLY_CONTENT=#{param2}
+			WHERE F_ID=#{param1}
+	</update>
+	
+	<insert id="faqwrite">
+		INSERT INTO FAQ VALUES(FAQ_ID_SEQ.NEXTVAL,
+		'관리자',#{param2},NULL,SYSDATE,'master')
+	</insert>
+	
+	<delete id="faqdelete">
+		DELETE FROM FAQ WHERE F_ID=#{param1}
+	</delete>
+	
 </mapper>

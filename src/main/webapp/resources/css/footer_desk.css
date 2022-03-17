@@ -15,7 +15,7 @@ color: #a7a69d;
 .footer {
 	/* 푸터바  */
 border: none;
-padding: 5px;
+/* padding: 5px; */
 background-color: #a7a69d;
 width: 100%;
 
@@ -40,5 +40,5 @@ margin-left: 50px;
 }
 
 #copy{
-	margin-left: 200px;
+	margin-left: 275px;
 }

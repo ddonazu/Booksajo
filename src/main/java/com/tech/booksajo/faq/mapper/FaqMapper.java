@@ -1,13 +1,12 @@
 package com.tech.booksajo.faq.mapper;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
 
-import org.mybatis.spring.annotation.MapperScan;
+import com.tech.booksajo.faq.vo.FaqDto;
 
-@MapperScan
 public interface FaqMapper {
-
-	List<Map<String, Object>> getList();
-
+	public ArrayList<FaqDto> faqlist();
+	public void faqreply(int fid, String fcontent);
+	public void faqwrite(String fwriter, String fcontent);
+	public void faqdelete(String fid);
 }

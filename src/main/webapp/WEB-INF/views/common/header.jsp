@@ -64,11 +64,11 @@
 	</nav>
 
 <div id="a">
-<a href="index"><img src="resources/img/logo2.png" width="170px" height="69px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo2.png" class="logo2" width="170px" height="69px" alt="" width="30" height="24" id="img"></a>
 </div>
 <div id="b">
 <form class="d-flex" action="search_table" method="post">
-      <input class="form-control me-2" type="search"  name="searchInput" aria-label="Search" style="height: 40px; border-radius: 25px;">
+      <input placeholder="검색어를 입력하세요." class="form-control me-2" type="search"  name="searchInput" aria-label="Search" style="height: 40px; border-radius: 25px;">
       <button class="btn btn-outline-success" id="searchbutton" type="submit" style="height: 40px; width:50px; float: right; border: none;"  >
       <img src="resources/img/search_icon3.png" width="23px;"  height="23px;" />
       </button>
