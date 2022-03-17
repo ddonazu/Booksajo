@@ -6,7 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<style>
+
+<!-- 512px이상일떄 적용되는 화면 -->
+<style type="text/css" media="screen and (min-width:512px)">
 
 #title{
 float:left;
@@ -62,6 +64,67 @@ margin-left: 20%;
 
 
 </style>
+
+
+<!-- 가로 500px이하일떄 적용되는 화면 ==모바일로 화면으로 칭함-->
+<style type="text/css" media="screen and (max-width:500px)">
+
+#title{
+float:left;
+margin-top:25px;
+width: 61%;
+margin-left: 20%;
+}
+
+#container{
+	width: 100%;
+	margin-top: 260px;
+	text-align: center;
+	border: 0px solid #bcbcbc;
+	background-color:white;
+}
+
+
+#sidebar-left{
+	width: 400px;
+	height: 100px;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 362px;
+	padding-top:0px;
+	display:inline-flex;
+	background-color: #fff;
+	border: 1.5px solid #a8afe5;
+	border-collapse:collapse;
+	font-size: 8px;
+	z-index: -1;
+
+}
+
+#content{
+	margin-top: -360px;
+	width:50%;
+	margin-left: 45px;
+	float: left;
+/* 	border: 2px solid #bcbcbc; */
+	height: 510px;
+	z-index: -1;
+	font-size: 13px;
+	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 
+	
+}
+
+#footer{
+	float:left;
+    width: 100%;
+    z-index: 0;
+	background-color: #eee;
+}
+
+
+</style>
+
+
 
 
 </head>

@@ -9,7 +9,12 @@
 <title>자주묻는 질문</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/css/faq_page/faq.css">
+
+
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/faq_page/faq_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/faq_page/faq_mobile.css">
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
@@ -22,7 +27,7 @@
 
 
 <body>
-	<div id="accordion" style="width: 700px; margin: 0 auto">
+	<div id="accordion" >
 		<c:forEach items="${faqlist }" var="faqdto">
 
 			<h3>${faqdto.f_title}</h3>
@@ -39,9 +44,9 @@
 			</div>
 		</c:forEach>
 	</div>
-	<div style="width: 700px; margin: 0 auto">
-		<a href="http://localhost:9007/booksajo/index">[북사조 Home]</a> <a
-			href="faqwriteform">[FAQ쓰기]</a>
+	<div id="bottomline" >
+		<a href="http://localhost:9007/booksajo/index">[북사조 Home]</a> 
+		<a href="faqwriteform">[FAQ쓰기]</a>
 	</div>
 </body>
 </html>
