@@ -4,7 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeList_board.css">
+<!-- <link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeList_board.css"> -->
+
+
+<link rel="stylesheet" media="screen and (min-width:512px)" href="resources/css/notice_page/noticeList_board_desk.css">
+<link rel="stylesheet" media="screen and (max-width:500px)" href="resources/css/notice_page/noticeList_board_mobile.css">
+
+
+
 
 	<!-- 페이지 타이틀 -->
 	<h1 class="h1_notice">공지사항</h1>
