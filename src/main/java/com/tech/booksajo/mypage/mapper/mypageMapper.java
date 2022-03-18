@@ -13,6 +13,7 @@ import com.tech.booksajo.mypage.vo.Myinfomation;
 @MapperScan
 public interface mypageMapper {
 	
-	List<Map<String,Object>> getList();
-	Myinfomation userinfo();
+	List<Map<String,Object>> getList();	
+	Myinfomation userinfotop(String userID);
+	List<Map<String, Object>> userinfo(String userID);
 }

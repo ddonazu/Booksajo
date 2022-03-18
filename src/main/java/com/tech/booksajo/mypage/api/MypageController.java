@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,11 +36,13 @@ public class MypageController {
 	public String mypage(Model model) {
 		
 		
-		Myinfomation meme=new Myinfomation();
+		/*System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
 		
-		meme=mypageService.userinfo();
+		List<Map<String,Object>> meme=mypageService.userinfo(userID);
+*/
 		
-		model.addAttribute("myinfo", meme);
+		//model.addAttribute("myinfo", meme);
 		
 		return "mypage";
 	}
@@ -57,16 +60,23 @@ public class MypageController {
 	
 
 	@RequestMapping("/myinfo")
-	public String myInfo(Model model) {
+	public String myInfo(@RequestBody Map<String,Object> map) {
 	
 		System.out.println("mypage인포 맵핑들어옴");
 		//회원 정보 가져와서 뿌려주기
 		
-		Myinfomation meme=new Myinfomation();
+		//Myinfomation meme=new Myinfomation();
 		
-		meme=mypageService.userinfo();
+		//meme=mypageService.userinfo();
 		
-		model.addAttribute("myinfo", meme);
+		System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
+		
+		
+		List<Map<String,Object>> meme=mypageService.userinfo(userID);
+		
+		
+		//model.addAttribute("myinfo", meme);
 		
 		//리턴 받은것 모델에 담아서 보내주긔
 		
@@ -75,17 +85,33 @@ public class MypageController {
 	
 	
 	@RequestMapping("/mypage_center2")
-	public String mypage_center2(Model model) {
+	public String mypage_center2(@RequestBody Map<String,Object> map) {
 		
-		Myinfomation meme=new Myinfomation();
+		//Myinfomation meme=new Myinfomation();
 		
-		meme=mypageService.userinfo();
+		//meme=mypageService.userinfo();
+		String userID=map.get("userId").toString();
+		List<Map<String,Object>> meme=mypageService.userinfo(userID);
 		
-		model.addAttribute("myinfo", meme);
+		//model.addAttribute("myinfo", meme);
 		
 		return "mypage_center2";
 	}
 	
 	
+	@RequestMapping("/mypageuser")
+	@ResponseBody
+	public Myinfomation mypageuser(@RequestBody Map<String,Object> map) {
+	
+		
+		/*리스폰스 바디 안붙여주면 바디를 찾을수없다고 자바스크립트 리턴받는부분에서 에러남/ 해결.. 공부해야할덧*/
+		System.out.println("mypageuser들어왔나요?================");
+		System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
+		
+		
+		return mypageService.userinfotop(userID);
+
+	}
 	
 }

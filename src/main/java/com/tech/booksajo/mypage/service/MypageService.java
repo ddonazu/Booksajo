@@ -14,6 +14,7 @@ import com.tech.booksajo.payment.vo.PayInfomation;
 public interface MypageService  {
 	
 	List<Map<String,Object>> getList();
-	Myinfomation userinfo();
+	Myinfomation userinfotop(String userID);
+	List<Map<String, Object>> userinfo(String userID);
 
 }

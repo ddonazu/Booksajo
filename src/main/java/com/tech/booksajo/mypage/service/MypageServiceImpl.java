@@ -22,11 +22,18 @@ public class MypageServiceImpl implements MypageService {
 		return mmapper.getList();
 	}
 
+
+
 	@Override
-	public Myinfomation userinfo() {
-		
-		
-		return mmapper.userinfo();
+	public Myinfomation userinfotop(String userID) {
+		// TODO Auto-generated method stub
+		return mmapper.userinfotop(userID);
+	}
+
+	@Override
+	public List<Map<String, Object>> userinfo(String userID) {
+		// TODO Auto-generated method stub
+		return mmapper.userinfo(userID);
 	}
 
 }
