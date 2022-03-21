@@ -58,7 +58,8 @@
             <%} %>
 <!-- 				<li id="g"><a href="#">고객센터</a></li> -->
 				<li id="g"><a href="#">주문배송</a></li>
-				<li id="g"><a href="shoplist">장바구니</a></li>
+				<li id="g"><a href="shoplist">장바구니<img src="resources/img/shopicon.png" width="20px;" height="20px;" alt="" /></a></li>
+				<!-- <li id="g"><a href="shoplist"><img src="resources/img/shopicon.png" width="25px;" height="25px;" alt="" /></a> </li> -->
 			</ul>
 		</div>
 	</nav>

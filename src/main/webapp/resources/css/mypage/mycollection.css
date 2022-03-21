@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.collectable{
+	border: 1px solid;
+	border-collapse: collapse;
+/* 	width: 950px; */
+	width: 310px;
+	height: 500px;
+}
+#collectiontable{
+
+}
+#block{
+	display:inline-block;
+} 
+
+tr,td{
+	border: 1px solid;
+}
+
+
+#bookimg{
+	height: 150px;
+}
+#booktitle{
+	height: 50px;
+}
+#bookpageline{
+	height: 30px;
+}
+#booklinebref{
+	height: 70px;
+	font-size: medium;
+	font-weight: bold;
+}
+
+#mylinebref{
+	height: 50px;
+	font-size: medium;
+}

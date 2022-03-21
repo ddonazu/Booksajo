@@ -1,5 +1,6 @@
 package com.tech.booksajo.mypage.api;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -128,11 +129,27 @@ public class MypageController {
 	
 	
 	@RequestMapping("/mycollection")
-	public String mycollection(Model model) {
+	public String mycollection(HttpServletRequest request,Model model) {
 		System.out.println("mycollection들어왔나요?================");
 
+		//콜렉션 리스트를 불러오는 매소드 호출
 		
-		return "mystatistics";
+/*		String userId = (String) session.getAttribute("userid");
+		System.out.println("userID:" + userId);
+		
+		*/
+		String userID=request.getParameter("userId");
+		System.out.println("유저아이디:"+userID);
+		
+		ArrayList<Object> collectlist=new ArrayList<Object>();
+		
+		//collectlist=mypageService.getcolleclist(userID);
+		
+		
+		//model.addAttribute("collist", collectlist);
+		
+		
+		return "mycollection";
 	}
 	
 	
@@ -167,5 +184,91 @@ public class MypageController {
 		
 		return "mystatistics";
 	}
+	
+	
+	@RequestMapping("/memewrite")
+	public String memewrite(HttpServletRequest request,Model model) {
+		System.out.println("memewrite들어왔나요?================");
+
+		//글귀 디비에 인설트해주는 매소드 실행
+		
+		String userID=request.getParameter("userId"); //틀린이유 i는 대문자 d는 소문자로.. 해줘야 앞에서 name명 잘보기..
+		String myline_title=request.getParameter("cTitle");
+		String isbn=request.getParameter("cBook");
+		String page=request.getParameter("cPage");
+		int line=Integer.parseInt(request.getParameter("cLine"));
+		String bookline=request.getParameter("cContent");
+		String myline=request.getParameter("cMemo");
+		
+		System.out.println(userID+myline_title+isbn+page+line+bookline+myline);
+
+
+
+		mypageService.addcolleclist(userID,myline_title,isbn,page,line,bookline,myline);
+		
+		
+
+		
+		return "mycollection";
+	}
+	
+	
+	@RequestMapping("/getmycollection")
+	@ResponseBody
+	public List<Map<String,Object>> getmycollection(@RequestBody Map<String,Object> map) {
+	
+		
+		/*리스폰스 바디 안붙여주면 바디를 찾을수없다고 자바스크립트 리턴받는부분에서 에러남/ 해결.. 공부해야할덧*/
+		System.out.println("getmycollection들어왔나요?================");
+		System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
+		
+		
+		return mypageService.getcolleclist(userID);
+
+	}
+	
+	
+	@RequestMapping("/collectmodify")
+	public String collectmodify(HttpServletRequest request,Model model) {
+		System.out.println("collectmodify들어왔나요?================");
+
+		//글귀 디비에 업데이트해주는 매소드 실행
+		
+		String userID=request.getParameter("userId"); //틀린이유 i는 대문자 d는 소문자로.. 해줘야 앞에서 name명 잘보기..
+		String isbn=request.getParameter("isbn");
+		System.out.println("isbn:"+isbn);
+		
+		//바꿀것 다 가지고 와야함.. 그래야 없데이트해줌 파람대입해서
+
+		//mypageService.modifycollect(userID,isbn);
+		
+		
+
+		
+		return "mycollection";
+	}
+	
+	@RequestMapping("/collectdelete")
+	public String collectdelete(HttpServletRequest request,Model model) {
+		
+		System.out.println("collectdelete들어왔나요?================");
+
+		//글귀 디비에 삭제하는 매소드
+		
+		String userID=request.getParameter("userId"); //틀린이유 i는 대문자 d는 소문자로.. 해줘야 앞에서 name명 잘보기..
+		String isbn=request.getParameter("isbn");
+		System.out.println("isbn:"+isbn);
+
+		
+		mypageService.deletecollect(userID,isbn);
+		
+		
+
+		
+		return "mycollection";
+	}
+	
+	
 	
 }

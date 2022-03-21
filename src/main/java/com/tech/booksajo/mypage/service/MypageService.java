@@ -16,5 +16,8 @@ public interface MypageService  {
 	List<Map<String,Object>> getList();
 	Myinfomation userinfotop(String userID);
 	List<Map<String, Object>> userinfo(String userID);
+	List<Map<String,Object>> getcolleclist(String userID);
+	void addcolleclist(String userID, String myline_title, String isbn, String page, int line, String bookline, String myline);
+	void deletecollect(String userID, String isbn);
 
 }

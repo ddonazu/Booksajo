@@ -36,4 +36,31 @@ public class MypageServiceImpl implements MypageService {
 		return mmapper.userinfo(userID);
 	}
 
+
+
+	@Override
+	public List<Map<String,Object>> getcolleclist(String userID) {
+		
+		return mmapper.getcolleclist(userID);
+	}
+
+
+
+
+
+	@Override
+	public void addcolleclist(String userID, String myline_title, String isbn, String page, int line,
+			String bookline, String myline) {
+		mmapper.addcolleclist(userID,myline_title,isbn,page,line,bookline,myline);
+		
+	}
+
+
+
+	@Override
+	public void deletecollect(String userID, String isbn) {
+		mmapper.deletecollect(userID,isbn);
+		
+	}
+
 }
