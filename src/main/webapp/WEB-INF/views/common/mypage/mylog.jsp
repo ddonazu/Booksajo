@@ -3,10 +3,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<h3>MYCONTENTS</h3>
+<h3>MYLOG</h3>
 
-<h4>문장수집 페이지</h4>
+<h4>나의 독서 기록</h4>
 
-
-
+방법:
 

@@ -16,13 +16,16 @@
   </li>
 <hr />  
   <li class="nav-item">
-    <a class="nav-link" href="#">문장수집</a>
+    <a class="nav-link" href="mycollection">문장수집</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">나의 독서기록</a>
+    <a class="nav-link" href="mylog">나의 독서기록</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">문장수집 글쓰기 ＞</a>
+    <a class="nav-link" href="mywrite">문장수집 글쓰기 ＞</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="mystatistics">나의 통계</a>
   </li>
 
 </ul>

@@ -125,4 +125,47 @@ public class MypageController {
 	}
 	
 	
+	
+	
+	@RequestMapping("/mycollection")
+	public String mycollection(Model model) {
+		System.out.println("mycollection들어왔나요?================");
+
+		
+		return "mystatistics";
+	}
+	
+	
+	@RequestMapping("/mylog")
+	public String mylog(Model model) {
+		System.out.println("mylog들어왔나요?================");
+		
+		
+		
+		return "mylog";
+	}
+	
+	
+	
+	@RequestMapping("/mywrite")
+	public String mywrite(Model model) {
+		System.out.println("mywrite들어왔나요?================");
+		
+		
+		
+		return "mywrite";
+	}
+	
+	
+	
+	
+	@RequestMapping("/mystatistics")
+	public String mystatistics(Model model) {
+		
+		System.out.println("mystatistics들어왔나요?================");
+		
+		
+		return "mystatistics";
+	}
+	
 }

@@ -236,6 +236,42 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mycontents.jsp" />
 	</definition>
+	
+			<!-- 임현주 mystatistics 레이아웃 -->
+	<definition name="mystatistics" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mystatistics.jsp" />
+	</definition>
+	
+
+			<!-- 임현주 mycollection 레이아웃 -->
+	<definition name="mycollection" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mycollection.jsp" />
+	</definition>
+	
+	
+				<!-- 임현주 mylog 레이아웃 -->
+	<definition name="mylog" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mylog.jsp" />
+	</definition>
+	
+
+				<!-- 임현주 mylog 레이아웃 -->
+	<definition name="mywrite" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mywrite.jsp" />
+	</definition>
+
 
 	<!-- 주문 배송조회 메뉴-->
 		<definition name="mypage_center2" extends="ThirdLayout">
