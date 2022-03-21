@@ -10,14 +10,14 @@
 
 #title{
 float:left;
-margin-top:25px;
+margin-top:0px;
 width: 61%;
 margin-left: 20%;
 }
 
 #container{
 	width: 100%;
-	margin-top: 260px;
+	margin-top: 210px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;
@@ -87,12 +87,12 @@ margin-left: 20%;
 		<tiles:insertAttribute name="body" />
 	</div>
 
-	<div id="footer">
-		<tiles:insertAttribute name="footer" />
-	</div>
 </div>
 
 
 
 </body>
+	<div id="footer">
+		<tiles:insertAttribute name="footer" />
+	</div>
 </html>
