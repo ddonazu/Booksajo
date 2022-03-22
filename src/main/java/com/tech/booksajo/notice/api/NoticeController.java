@@ -41,15 +41,13 @@ public class NoticeController {
 //			return "redirect:noticeList";
 //		}
 		
-//		search
+//		검색
 		String ntitle="";
 		String ncontent="";
 		String[] brdtitle=request.getParameterValues("searchType");
 		
 		if(brdtitle!=null) {
 			for(int i=0;i<brdtitle.length;i++) {
-				System.out.println("========================");
-				System.out.println("brdtitle : "+brdtitle[i]);
 			}
 		}
 		
@@ -76,18 +74,14 @@ public class NoticeController {
 					}
 				}
 			}
-			
 		}
 		
-		
 		String searchKeyword=request.getParameter("sk");
+		
 		if(searchKeyword==null)
 			searchKeyword="";
-		System.out.println("searchKeyWord : "+searchKeyword);
 		
-		
-		
-//		paging
+//		페이징
 		String strPage=request.getParameter("page");
 		System.out.println("strPage1 : "+strPage);
 		if(strPage==null)
@@ -199,10 +193,7 @@ public class NoticeController {
 	
 	@RequestMapping(method=RequestMethod.POST,value="/noticeModify")  
 	public void noticeModify(HttpServletRequest request, Model model, HttpServletResponse response) throws IOException {
-		System.out.println("pass by noticeModify");
 		
-	
-//		int nseq=(Integer.parseInt(request.getParameter("nseq")));
 		String nseq=request.getParameter("nseq");
 		String nTitle=request.getParameter("nTitle");
 		String nContent=request.getParameter("nContent");
@@ -210,14 +201,11 @@ public class NoticeController {
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		noticemapper.noticeModify(nseq,nTitle,nContent);
 		response.sendRedirect("noticeView?nseq=" + nseq);
-//		return "noticeView";
-		
 	}
 	
 	
 	@RequestMapping("/noticeDelete")
 	public String noticeDelete(HttpServletRequest request, Model model) {
-		System.out.println("pass by noticeDelete");
 		
 		String nseq=request.getParameter("nseq");
 

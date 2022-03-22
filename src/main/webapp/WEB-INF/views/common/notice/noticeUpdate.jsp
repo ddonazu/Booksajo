@@ -5,10 +5,10 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeUpdate_board.css">
+<title>공지사항 글수정 | 고객센터 - 책사조</title>
 
 <!-- 글쓰기에디터 js -->
 <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
-
 <div class="noticeUpdate_board">
 	<h1 class="h1_notice">공지사항 수정</h1>
 	<form action="noticeModify" method="post">
@@ -38,8 +38,8 @@
 		</table>
 
 		<div class="btn">
-			<input type="submit" value="저장" /> &nbsp;&nbsp; 
-			<a href="noticeView?nseq=${noticeView.nseq }">취소</a> &nbsp;&nbsp;
+			<input type="submit" value="저장" style="font-size: 13px;" /> &nbsp;&nbsp; 
+			<a href="noticeView?nseq=${noticeView.nseq }" style="font-size: 13px;">취소</a> &nbsp;&nbsp;
 		</div>
 
 	</form>

@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeView_board.css">
-
+<title>공지사항 상세 | 고객센터 - 책사조</title>
 		<div class="noticeView_board">
 		<h1 class="h1_notice">공지사항 상세</h1>
 		<table class="table">
@@ -30,37 +30,23 @@
 			</tr>
 		</table>
 		</div>
-	
-		
-		<!-- 페이징 및 목록 영역  --> 
 
-	<c:if test="${userid eq 'admin' }">
-		<!-- 관리자 영역 BTN -->
+
+
+		<c:if test="${userid eq 'admin' }">
 			<div class="admin_btn">
-				<a href="noticeDelete?nseq=${noticeView.nseq }" style="color: black;">			
-					<input type="submit" id="deletebtn_noticeList" value="삭제" /></a>&nbsp;&nbsp;
-				<a href="noticeUpdate?nseq=${noticeView.nseq }" style="color: black;">			
-					<input type="submit" id="modifybtn_noticeList" value="수정" /></a>&nbsp;&nbsp;
-			</div>
-	</c:if>
-		<div class="btn">
-				<a href="noticeList" style="color: black;">
+				<a href="noticeDelete?nseq=${noticeView.nseq }" style="color: black;">
+					<input type="submit" id="deletebtn_noticeList" value="삭제" /></a>&nbsp;&nbsp; 
+				
+				<a href="noticeUpdate?nseq=${noticeView.nseq }" style="color: black;"> 
+				<input type="submit" id="modifybtn_noticeList" value="수정" /></a>&nbsp;&nbsp;
+		</c:if>
+
+				<a href="noticeList" style="color: black; font-size: 13px;">
 					<input type="submit" class="listbtn_noticeView" value="목록" /></a> &nbsp;&nbsp;
-		</div>
+			</div>
 	
-	
-	
-	
-<!-- 	<div> -->
-<%-- 	<h1>${userid }</h1> --%>
-<%-- 	<h1>${admin }</h1> --%>
-<!-- 	</div> -->
-	
-	
-	
-	
-	
-	
+
 <!-- 공지사항 view테이블 이전,다음 버튼(기능구현하게되면 살려보자) -->
 <!-- 			<a href="#">
 				<input type="submit" id="prebtn_noticeView" value="이전" /></a> &nbsp;&nbsp; -->

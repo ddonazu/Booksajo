@@ -120,15 +120,11 @@ td {
 
 </head>
 <body>
-
 	<div id="loginProc">
 		<form action="loginProc" method="post">
-
-
 			<legend>
-				<img id="img1" src="resources/img/logo3.png" /><br /> <span
-					style="font-size: 20px; font-family: impact; color: #555;">MEMBER JOIN</span>
-
+				<img id="img1" src="resources/img/logo3.png" /><br />
+				<span style="font-size: 20px; font-family: impact; color: #555;">MEMBER JOIN</span>
 			</legend>
 			
 			<table>
@@ -141,23 +137,25 @@ td {
 				</tr>
 				<tr>
 					<td class="title">아이디</td>
-					<td class="right" colspan="2"><input id="id" name="id"
-						type="text" required autofocus></td>
+					<td class="right" colspan="2"><input id="id" name="id" type="text" required autofocus></td>
 				</tr>
 				<tr>
 					<td class="title">비밀번호</td>
-					<td class="right" colspan="2"><input id="pwd" name="pwd"
-						type="password" required></td>
+					<td class="right" colspan="2"><input id="pwd" name="pwd" type="password" required></td>
 				</tr>
 				<tr>
 					<td class="right" colspan="3">
-						<div id="span2">비번찾기 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID찾기  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="signIn">회원가입</a></div>
+						<div id="span2">비번찾기 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										ID찾기  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+										<a href="signIn">회원가입</a>
+						</div>
 					</td>
 				</tr>
 
 			</table>
 			<input id="submitbtn" type="submit" value="로그인"
-				style="width: 380px; margin: 20px 0 0 45px; height: 35px; font-size: 13px; font-family: impact; font-weight: bolder;" />
+				style="width: 380px; margin: 20px 0 0 45px; height: 35px; 
+				font-size: 13px; font-family: impact; font-weight: bolder;" />
 		</form>
 	</div>
 </body>
