@@ -177,9 +177,91 @@ public class MypageController {
 	
 	
 	@RequestMapping("/mystatistics")
-	public String mystatistics(Model model) {
+	public String mystatistics(HttpServletRequest request,Model model) {
 		
 		System.out.println("mystatistics들어왔나요?================");
+		
+
+		
+		
+		return "mystatistics";
+	}
+	
+	
+	@RequestMapping("/getbuy")
+	@ResponseBody
+	public String getbuy(HttpServletRequest request,Model model,@RequestBody Map<String,Object> map) {
+		
+		System.out.println("getbuy들어왔나요?================");
+		
+		System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
+		
+		//1.구매 책 가져오는 서비스
+		
+/*		List<Map<String,Object>> getbuylist=new ArrayList<Map<String,Object>>();
+		getbuylist=mypageService.getbuy(userID);*/
+		
+		List<Map<String,Object>> getbuylist=new ArrayList<Map<String,Object>>(mypageService.getbuy(userID));
+		
+		for (Map<String, Object> map2 : getbuylist) {
+			System.out.println("getbuylist내용물 꺼내보기:"+map2.toString());
+		}
+		
+		
+		//책 제목에서 형태소 분석.. 명사 추출 ->한줄 텍스트로 받아볼것임
+		ArrayList<String>strlist=new ArrayList<String>();
+		strlist=mypageService.komoran(getbuylist);
+		
+		for (String string : strlist) {
+			System.out.println("strlist꺼내기:"+string);
+		}
+		
+		
+		//2.구매 책에서 키워드 뽑아내는 서비스 (3개 뽑기) 
+
+		/*키워드는 ..도서나루 api에서밖에 없으니까 도서나루 호출..*/
+		
+		
+		ArrayList<String> keylist=new ArrayList<String>();
+		keylist=mypageService.getkeyword(getbuylist);
+		
+		
+		for (String string : keylist) {
+			System.out.println("keylist꺼내기:"+keylist);
+		}
+		
+		//3.구매 책에서 카테고리 뽑아내는 서비스(대 . 중 . 소)
+		
+		
+		
+		
+		
+		//4.코모란 형태소 분석 서비스 1~3번 결과에서 명사추출
+		
+		
+		
+		
+		//5.KDC카테고리와 비교하는 서비스
+		
+		
+		
+		
+		
+		//6.중목 명사 카운트 올리는 서비스 
+		
+		
+		
+
+		
+		//7. 그래프에 쓰일 JSON타입으로 값을 변환해주는 서비스
+		
+		
+		
+		
+		
+		//8. 7번 ->그래프로 표시
+		
 		
 		
 		return "mystatistics";

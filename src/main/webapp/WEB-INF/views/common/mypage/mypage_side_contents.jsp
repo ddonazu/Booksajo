@@ -9,6 +9,18 @@
 <link rel="stylesheet" type="text/css" href="resources/css/mypage_side.css">
 
 
+<%
+	String userId = (String) session.getAttribute("userid");
+	System.out.println("userID:" + userId);
+//코드 블락으로 jsp에서 컨트롤러로 못전달하네.. 꼭 폼으로 보내줘야하나봄...네임 만들어서 벨류로 보내줘야함
+%>
+
+<script>
+
+var sessionId = '<%=userId%>';
+
+</script>
+
 
 <ul class="nav flex-column" id="side">
   <li class="nav-item" id="hr" style="font-style: sans-serif; font-weight: bold;">
@@ -27,5 +39,4 @@
   <li class="nav-item">
     <a class="nav-link" href="mystatistics">나의 통계</a>
   </li>
-
 </ul>

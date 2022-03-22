@@ -71,4 +71,10 @@
 	</delete>
 
 
+	<select id="getbuy" resultType="map">
+		select
+		isbn
+		from bsjbuylist where user_id=#{param1}
+	</select>
+
 </mapper>
