@@ -4,20 +4,67 @@
 
 <link rel="stylesheet" href="resources/css/mypage_center2.css" />
 
-<!-- 여기다가 검색테이블 구현하면 되겠다요 -->
 
+<%
+	String userId = (String) session.getAttribute("userid");
+	System.out.println("userID:" + userId);
+%>
+
+<script>
+
+$(document)
+.ready(
+		function() {
+		var sessionId = '<%=userId%>';
+		console.log("sessionID:" + sessionId);
+		getuserinfo(sessionId);
+
+		function getuserinfo(sessionId) {
+
+			var userId = sessionId;
+			
+			$.ajax({
+				type : "POST",
+				url : "/booksajo/mypageuser",
+				data : JSON.stringify({
+					userId : userId
+				}),
+				datatype : 'json',
+				contentType : 'application/json; charset=utf-8',
+				success : function(result) {
+
+					var html="";
+					//console.log("result:"+result);
+
+					
+ 					html += '<table style="width: 100%" height="90px">';
+					html += '<tr>';
+					html += '<td id="usertab"';
+					html += 'style="text-align: left; padding-left: 20px; width: 30%;">' + result.user_nickname +'님</td>';
+					html += '<td id="coupon">쿠폰</br>'+result.user_coupon;
+					html += '</td>';
+					html += '<td id="point">통합포인트</br>'+result.user_point;
+					html += '</td>';
+					html += '<td id="check">예치금</br>'+result.user_check;
+					html += '</td>';
+					html += '</tr>';
+					html += '</table>';
+					
+									
+					//$('#usertab').html(putnickname);
+					$('#cuponcheck').html(html); 
+					
+				}
+			});
+
+		}
+	});
+</script>
 
 
 
 <div id="cuponcheck">
-<table style="width: 100%" height="90px">
-<tr>
-<td id="usertab" style="text-align: left; padding-left: 20px; width: 30%;">${myinfo.user_nickname}&nbsp;&nbsp;님</td>
-<td>쿠폰</br>${myinfo.user_coupon}</td>
-<td>통합포인트</br>${myinfo.user_point}</td>
-<td>예치금</br></td>
-</tr>
-</table>
+
 </div>
 
 <div id="tt">

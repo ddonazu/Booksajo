@@ -13,6 +13,17 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+
+	<repositories>
+		<!-- 코모란 set 리파지토리 -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+
+
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -201,12 +212,12 @@
 			<version>1.5.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
-         <!-- 제이슨 라이브러리 -->
-      	<dependency>
-	         <groupId>com.googlecode.json-simple</groupId>
-	         <artifactId>json-simple</artifactId>
-	         <version>1.1.1</version>
-      	</dependency>
+		<!-- 제이슨 라이브러리 -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 		<!-- tiles -->
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
 		<dependency>
@@ -266,6 +277,15 @@
 			<version>2.9.5</version>
 		</dependency>
 		<!-- ============= -->
+
+
+
+		<!-- ===========KOMORAN 사용 set============ -->
+			<dependency>
+				<groupId>com.github.shin285</groupId>
+				<artifactId>KOMORAN</artifactId>
+				<version>3.3.4</version>
+			</dependency>
 
 
 

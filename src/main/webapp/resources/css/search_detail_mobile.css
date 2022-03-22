@@ -1,0 +1,610 @@
+div#title {
+    margin-top: 199px;
+}
+
+
+#inlineside{
+	/* div로 다 넣고 인라인 플럭스해주면 inline flex 옆으로 놔짐 inline은 세로로 놔짐 */
+	/* display: flex; */
+}
+
+#img2{
+	/* border: 1px solid #aaa; */ 
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	padding-bottom: 0px;
+	padding-top:0px;
+	width: 250px;
+	margin-top: 100px;
+
+
+}
+
+/* 왼쪽 키워드 사이드 */
+.h2keyword {
+    font-size: 12px;
+    color: #000;
+    padding: 15px 0 0 15px;
+    height: 27px;
+	/* display: inline-block; */
+}
+
+#keywordpick{
+
+	position:relative;
+	left:140px; 
+	bottom:250px;
+	border: 1px solid #dcdcdc;
+	margin-top:10px;
+	height: 134px;
+	border-collapse: collapse;
+	width: 210px;
+	margin-left: 38%;
+}
+
+#keywordpick a:hover{
+	border: 1px solid #a8afe5;
+}
+#title2{
+	margin-left: 100px;
+	margin-bottom: 70px;
+}
+
+#detail{
+
+	position:relative;
+	top:400px;
+	right:330px;
+	width: 450px;
+
+}
+
+#booksen{
+	position:relative;
+	top:450px;
+	right:460px;
+	width: 100%;
+	float: left;
+	margin-top:80px;
+	
+}
+
+#bookimg{
+	position: relative;
+	top:600px;
+	right:395px;
+	margin-bottom: 50px;
+	margin-top: 10px;
+	
+}
+
+#bookReview {
+	position:relative;
+	top:650px;
+	right:300px;
+	float:left;
+	margin-top: 300px;
+width: 400px;
+}
+
+.table_simple2{
+
+	position:relative;
+	top:650px;
+	right:300px;
+
+	
+	/* .table_simple2 margin_top10 */
+}
+
+
+table_detail_guide margin_top10{
+	position:relative;
+	top:110px;
+	right:300px;
+}
+
+
+h1{
+	position:relative;
+	top:100px;
+	right: 150px;
+
+}
+
+p1{
+	font-size: x-small;
+}
+
+
+#pf {
+    display: inline-block;
+/*     *display: inline; */
+    padding: 4px 12px;
+    margin: 0 5px 6px 0;
+    color: #000;
+    border: 1px solid #d6d6d6;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 10px;
+    line-height: 16px;
+/*     *line-height: 34px; */
+}
+
+
+#infotab{
+	
+	/* 높이 조정가능 임시 설정 */
+	width: 100%;
+}
+
+table{
+/* 	border: 1px solid #eee; */
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+}
+tr,td{
+	/* border: 1px solid #eee; */
+}
+
+#z b{
+	font-size:  medium;
+	font-weight: bold;
+	color: #3A60DF;
+	padding-left: 20px;
+}
+
+#x b{
+	font-size:small;
+	color: #555555;
+	padding-left: 20px;
+}
+
+#au b{
+	font-size:10px;
+    margin-top: 10px;
+    color: #666666;
+    line-height: 18px;
+    padding-left: 20px;
+}
+
+#n p{
+	padding-left: 20px;
+	font-size: small;
+	padding-top: 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+#m{
+	padding-left: 20px;
+	font-size: xx-small;
+}
+
+#sale{
+	padding-left: 20px;
+/* 	font-size: x-large;
+	color: red; */
+	border-bottom: 1px solid #ddd;
+}
+
+/* 책이름 위에 작은 ICON */
+.icon{
+    font-size: 6px;
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+/* 출판사 작가 출판일 */
+.box_detail_point .author {
+    margin-top: 10px;
+    color: #777;
+    line-height: 18px;
+}
+
+
+/* 장바구니,구매 버튼  */
+.btn_blue {
+    background-image: none;
+    background-color: #5e6b9f !important;
+    border: 1px solid #5e6b9f;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn_blue2 {
+    background-image: none;
+    background-color: #7b8ed1 !important;
+    border: 1px solid #7b8ed1;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn_blue:hover {
+	border: 2px solid #38405f
+}
+.btn_blue2:hover {
+	border: 2px solid #38405f
+}
+
+
+/* 왼쪽 사이드 미리보기,매장재고위치 */
+#storelo{
+	border-collapse: collapse;
+	width: 250px;
+	height: 80px;
+	margin-left: 30%;
+	display: inline;
+}
+
+.btnPreview{
+    font-family: "Malgun Gothic", "Malgun Gothic", tahoma !important;
+    word-spacing: -1px;
+    padding: 0;
+    vertical-align: baseline;
+    line-height: 18px;
+    color: #a8afe5;
+    width: 200px;
+    font-size: 13px;
+    text-align: center;
+    margin: 12px auto 12px;
+    
+}
+
+a.priview{
+	color: #666666;
+}
+
+.btnLocation{
+	display: inline-block;
+    padding: 0;
+    width: 180px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btnLocation a {
+/*     color: #666; */
+    display: inline-block;
+/*     border: 1px solid #dcdcdc; */
+    box-sizing: border-box;
+    padding: 0;
+    width: 180px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.btnLocation a:hover {
+    color: #a8afe5;
+    border: 1px solid #a8afe5;
+    text-decoration: none;
+    zoom: 1;
+}
+
+#ndStock {
+	width: 180px;
+}
+
+
+/* ********************************************************************************* */
+
+/* 리뷰작성 버튼 */
+.reviewWriteBtn {
+	position: relative;
+	margin-left: 90%;
+}
+
+/* 리뷰 작성게시판  */
+.body {
+    font-size: 12px;
+    font-family: dotum, sans-serif;
+    color: #666;
+    line-height: 1.2em;
+}
+
+.board_list {
+    margin: 9px 0 0 0;
+    border-top: 1px solid #000;
+    zoom: 1;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.comment_wrap {
+    position: relative;
+    border-bottom: 1px dotted #d4d4d4;
+    padding: 14px 0 10px 0;
+    margin-bottom: 50px;
+    
+}
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.comment_wrap dl dd.comment div.txt {
+    display: block;
+    margin-bottom: 6px;
+}
+.comment_wrap dl dd.comment {
+    display: block;
+    width: 95%;
+    padding: 7px 0 0 0;
+    line-height: 20px;
+    color: #303030;
+    font-size: 12px;
+    word-wrap: break-word;
+}
+
+
+
+#reviewwrap{
+ 	position:relative;
+	top:600px;
+	right:330px;
+	width: 400px;
+}
+
+
+
+/* 리뷰 작성 게시판 답댓글 */
+.table22 {
+	border:1px;
+	position: relative;
+	margin-bottom: 0px;
+}
+.table3{
+    margin: 9px 0 0 0;
+    border-top: 1px solid #000;
+    border:1px;
+    border-bottom:1px;
+    zoom: 1;
+    font-size: 12px;
+}
+.reply_wrap {
+    position: relative;
+    border-bottom: 1px dotted #d4d4d4;
+    padding: 14px 0 10px 18px;
+    background: url(http://image.kyobobook.co.kr/ink/images/common/bg_reply.gif) 0 15px no-repeat;
+}
+
+.re_write_wrap .notice_reply {
+    display: block;
+    margin: 12px 0 0 0;
+    font-size: 11px;
+    color: #7f7f7f;
+}
+
+.re_write_wrap textarea {
+    border: 1px solid #dadada;
+    background-color: #fff;
+    height: 65px;
+    padding: 12px 8px 12px 8px;
+    font-size: 12px;
+    color: #a9a9a9;
+    resize: none;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.re_write_wrap.book_review textarea {
+    width: 80%;
+    position: 
+}
+
+.re_write_wrap.book_review .btn_submit {
+    right: 26px;
+    top: 36px;
+    position: absolute;
+    font-size: 13px;
+}
+.btn_submit {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    border: 1px solid #bdbdbd;
+    background-color: #f8f8f8;
+    color: #000;
+    font-weight: bold;
+    font-family: dotum;
+    cursor: pointer;
+}
+
+
+#bookReview {
+	margin-top: 60px;
+}
+
+/* 이선아 리뷰 교환,반품,품절게시판*/
+
+.nav.nav-tabs{
+	font-size: 12px;
+}
+#box_detail_content {
+    padding: 30px 40px 60px 20px;
+    word-wrap: break-word;
+}
+
+#title_detail_basic {
+    font-size: 16px;
+    line-height: 18px;
+    height: 26px;
+    padding-top: 4px;
+    color: #000;
+    font-family: 'Malgun Gothic','Apple SD Gothic Neo','Dotum','Sans-Serif';
+}
+
+.margin_top20 {
+    margin-top: 10px !important;
+    font-size: 12px;
+    text-align: left;
+}
+
+#tab_detail_content {
+    width: 750px;
+    height: 36px;
+    background-color: #fff;
+    border-left-width: 0;
+}
+
+
+/* table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+} */
+
+
+.title_detail_basic {
+    display: block;
+    font-size: 20px;
+    text-align: left;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-inline-end: 100px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 100px;
+    font-weight: bold;
+}
+
+body {
+    font-size: 12px;
+    font-family: dotum, sans-serif;
+    color: #666;
+    line-height: 1.2em;
+}
+
+.table_detail_guide th {
+    background-color: #eee;
+}
+.table_simple2 th {
+    color: #444;
+    text-align: left;
+}
+.table_simple2 th, .table_simple2 td {
+    border: 1px solid #ddd;
+    padding: 10px 10px 6px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.box_detail_content .table_simple2 {
+    font-size: 12px;
+}
+.table_simple2 {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+
+/* 리뷰작성 게시판 페이징 */
+.paging_num {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.page_area {
+	clear: both;
+	margin-bottom: 30px;
+}
+
+.a {
+	position: relative;
+	margin: 3px 5px 1px 5px;
+	border: solid 1px #666;
+}
+
+
+
+/* 사이드 sticky 태그 */
+.sticky{
+	width:100px;
+	position:sticky;
+	top:300px;
+	left:500px;
+	z-index: 20;
+}
+
+#side_nav-tabs > li {
+	width: 150px;
+}
+#side_nav-tabs > li > a:hover{
+	color: #666;
+	margin-right: -30px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#side_nav-tabs > li > a{
+	border-color: #eee;
+
+}
+
+/* quick메뉴 버튼  */
+#quick_menu2 .btn_quick_top a {
+    display: block;
+    height: 34px;
+    font-size: 0;
+    color: transparent;
+    border: 1px solid #d2d2d2;
+    background: #f9f9f9 url(http://image.kyobobook.co.kr/ink/images/gnb/nav6_btn_sprite.png) no-repeat 21px -108px;
+    transition: all 0.2s;
+}
+#quick_menu2 .btn_quick_down a {
+    display: block;
+    height: 34px;
+    font-size: 0;
+    color: transparent;
+    border: 1px solid #d2d2d2;
+    background: #f9f9f9 url(http://image.kyobobook.co.kr/ink/images/gnb/nav6_btn_sprite.png) no-repeat -19px -108px;
+    transition: all 0.2s;
+}
+
+#quick_menu2 .btn_quick_down a:hover {
+    border-color: #999;
+}
+
+
+input count{
+	padding-left: 0px;
+}

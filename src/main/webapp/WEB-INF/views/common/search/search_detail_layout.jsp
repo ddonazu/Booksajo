@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style>
+
+
+<!-- 512px이상일떄 적용되는 화면 -->
+<style type="text/css" media="screen and (min-width:512px)">
 
 #title{
 margin-top: 280px;
@@ -50,6 +53,57 @@ margin-left: 265px;
 	background-color: #eee;
 }
 </style>
+
+
+<!-- 가로 500px이하일떄 적용되는 화면 ==모바일로 화면으로 칭함-->
+<style type="text/css" media="screen and (max-width:500px)">
+
+#title{
+margin-top: 30px;
+width: 400px;
+margin-left: 100px;
+
+}
+
+#container {
+	width: 100%;
+	text-align: center;
+	border: 0px solid #bcbcbc;
+	background-color: white;
+}
+
+#content {
+	margin-top: 5px;
+	width: 50%;
+	margin-left: 0px;
+	float: left;
+	/* 	border: 2px solid #bcbcbc; */
+	height: 100%;
+	z-index: -1;
+	display: inline-flex;
+	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */
+}
+
+#footer {
+	/*  
+기존설정  
+	float:left;
+    width: 100%;
+    z-index: 0;
+	background-color: #eee;
+*/
+	/* 새로운설정 */
+	/* 	포지션을 스타틱으로 해줘야함 위네 블럭 영역다음에 배치됨 */
+	float: left;
+	width: 100%;
+	height: 200px;
+	position: static;
+	z-index: 0;
+	background-color: #eee;
+}
+</style>
+
+
 
 
 </head>
