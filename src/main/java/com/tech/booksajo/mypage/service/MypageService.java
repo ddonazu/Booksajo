@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.tech.booksajo.mypage.vo.Myinfomation;
 import com.tech.booksajo.payment.vo.PayInfomation;
 
+import kr.co.shineware.nlp.komoran.model.Token;
+
 
 public interface MypageService  {
 	
@@ -20,7 +22,9 @@ public interface MypageService  {
 	void addcolleclist(String userID, String myline_title, String isbn, String page, int line, String bookline, String myline);
 	void deletecollect(String userID, String isbn);
 	List<Map<String, Object>> getbuy(String userID);
-	ArrayList<String> komoran(List<Map<String, Object>> getbuylist);
-	ArrayList<String> getkeyword(List<Map<String, Object>> getbuylist);
+	List<Token> komoran(List<Map<String, Object>> getbuylist);
+	ArrayList<String> getkeyword(List<Map<String, Object>> getbuylist) throws Exception;
+	ArrayList<String> getcate(List<Map<String, Object>> getbuylist);
+	List<Token> tellcate(List<Token> strlist);
 
 }

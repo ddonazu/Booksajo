@@ -77,4 +77,9 @@
 		from bsjbuylist where user_id=#{param1}
 	</select>
 
+	<insert id="addtitle" parameterType="map">
+		update bsjbuylist set title = (select title from bsjbook where isbn=#{param1}) where isbn=#{param1}
+		
+	</insert>
+
 </mapper>

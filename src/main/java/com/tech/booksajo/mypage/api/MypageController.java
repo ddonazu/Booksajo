@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tech.booksajo.mypage.service.MypageService;
 import com.tech.booksajo.mypage.vo.Myinfomation;
 
+import kr.co.shineware.nlp.komoran.model.Token;
 import lombok.RequiredArgsConstructor;
 
 
@@ -190,7 +191,7 @@ public class MypageController {
 	
 	@RequestMapping("/getbuy")
 	@ResponseBody
-	public String getbuy(HttpServletRequest request,Model model,@RequestBody Map<String,Object> map) {
+	public String getbuy(HttpServletRequest request,Model model,@RequestBody Map<String,Object> map) throws Exception {
 		
 		System.out.println("getbuy들어왔나요?================");
 		
@@ -210,13 +211,15 @@ public class MypageController {
 		
 		
 		//책 제목에서 형태소 분석.. 명사 추출 ->한줄 텍스트로 받아볼것임
-		ArrayList<String>strlist=new ArrayList<String>();
+		List<Token> strlist=new ArrayList<Token>();
 		strlist=mypageService.komoran(getbuylist);
 		
-		for (String string : strlist) {
-			System.out.println("strlist꺼내기:"+string);
+		for (Token token : strlist) {
+			 System.out.format("(%2d, %2d) %s/%s\n", token.getBeginIndex(),
+			 token.getEndIndex(), token.getMorph(), token.getPos()); 
 		}
 		
+
 		
 		//2.구매 책에서 키워드 뽑아내는 서비스 (3개 뽑기) 
 
@@ -231,10 +234,21 @@ public class MypageController {
 			System.out.println("keylist꺼내기:"+keylist);
 		}
 		
-		//3.구매 책에서 카테고리 뽑아내는 서비스(대 . 중 . 소)
+		
+		//리스트 내용 없애기
+		
+		keylist.clear();
 		
 		
+		//3.구매 책에서 카테고리 뽑아내는 서비스(대 . 중 . 소)   -> 네이버 API는 무리.. 결과에서 카테고리 보여주는게 없으니.. 
+		//이것도 도서정보나루 에서 카테고리 뽑아야겠다.
 		
+		ArrayList<String> catelist=new ArrayList<String>();
+		catelist=mypageService.getcate(getbuylist);
+		
+		for (String string : catelist) {
+			System.out.println("catelist꺼내기:"+catelist);
+		}
 		
 		
 		//4.코모란 형태소 분석 서비스 1~3번 결과에서 명사추출
@@ -242,10 +256,11 @@ public class MypageController {
 		
 		
 		
-		//5.KDC카테고리와 비교하는 서비스
+		//5.KDC카테고리와 비교해서 카테고리와 매치시켜주고 그 매치된 카테고리 리스트에 담아서 가져옴	
 		
+		List<Token> telllist=new ArrayList<Token>();
 		
-		
+		telllist=mypageService.tellcate(strlist);
 		
 		
 		//6.중목 명사 카운트 올리는 서비스 
@@ -262,7 +277,7 @@ public class MypageController {
 		
 		//8. 7번 ->그래프로 표시
 		
-		
+		strlist.clear();
 		
 		return "mystatistics";
 	}
