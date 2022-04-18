@@ -18,6 +18,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.AlternativeJdkIdGenerator;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -120,8 +121,8 @@ public class LoginController {
 //			join 처리
 			int insertResult=logMap.signInProc(id,nick,gender,age,name,
 					phone,postcode,addr,email,shpwd,bcpwd);
-//			System.out.println("hihihihih:"+insertResult);
-			if(insertResult==1) {//성공
+			
+			if(insertResult==1) { //성공
 				emailSendAction(id);
 				return "redirect:/";
 			}else {
@@ -136,7 +137,7 @@ public class LoginController {
 			System.out.println("아이디있음");
 			return "redirect:/signIn";
 		}else if(idCheckResult==0 && nickCheckResult==1) {
-			System.out.println("닉네일있음");	
+			System.out.println("닉네임있음");	
 			return "redirect:/signIn";
 		}else {
 			return "redirect:/signIn";
@@ -182,7 +183,7 @@ public class LoginController {
 		int idCheckResult=idCheck(id);
 		String host="http://localhost:9007/booksajo/";
 		
-		String from="hyunbinl236@gmail.com";
+		String from="hyunbinl236@gmail.com>";
 		SignInVO signInVO=logMap.idCheck(id);
 		
 		String to=signInVO.getUser_email();
@@ -375,7 +376,7 @@ public class LoginController {
 			logMap.updateMemberEmailChecked(id);
 			return "redirect:/";
 		}else {
-			return "error";//고드 구현 없음
+			return "error";//코드 구현 없음
 		}
 		
 		

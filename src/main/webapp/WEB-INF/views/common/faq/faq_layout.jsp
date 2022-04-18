@@ -44,6 +44,7 @@ margin-left: 20%;
 
 #content{
 	margin-top: -50px;
+	margin-bottom: 104px;
 	width:50%;
 	margin-left: -90px;
 	float: left;

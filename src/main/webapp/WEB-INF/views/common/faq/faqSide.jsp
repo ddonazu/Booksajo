@@ -25,8 +25,8 @@
     <a class="nav-link" style="font-size: small;  text-align: left;" href="noticeList">·공지사항</a>
   </li>
   
-  <li class="nav-item">
-    <a class="nav-link" style="font-size: small;  text-align: left;" href="#">·도서/상품정보/교과서</a>
-  </li>
+<!--   <li class="nav-item"> -->
+<!--     <a class="nav-link" style="font-size: small;  text-align: left;" href="#">·도서/상품정보/교과서</a> -->
+<!--   </li> -->
  
 </ul>

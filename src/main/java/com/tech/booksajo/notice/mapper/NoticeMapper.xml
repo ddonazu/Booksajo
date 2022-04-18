@@ -28,10 +28,6 @@
 				WHERE NTITLE LIKE '%'||#{param3}||'%' or NCONTENT
 				LIKE '%'||#{param3}||'%'
 			</when>
-			<otherwise>
-		 	<!-- 3?댁긽??寃쎌슦???놁뼱??鍮덈???-->
-		 	
-			</otherwise>
 		</choose>
 	</sql>
 
@@ -48,6 +44,7 @@
 		FROM BSJNOTICE WHERE (NTITLE LIKE '%'||#{param1}||'%' OR NCONTENT
 		LIKE '%'||#{param1}||'%')
 	</select>
+	
 	<select id="selectBoardTotCount0" resultType="Integer">
 		SELECT COUNT(*)
 		FROM BSJNOTICE
@@ -78,8 +75,4 @@
 		DELETE FROM BSJNOTICE WHERE NSEQ=#{param1}
 	</delete>
 	
-<!-- 	<select id="noticeCancel" resultType="com.tech.booksajo.notice.vo.NoticeDto">
-		SELECT NSEQ,NTITLE,NCONTENT,NDATE,NHIT
-		FROM BSJNOTICE WHERE NSEQ=#{param1}
-	</select> -->	
 </mapper>

@@ -27,7 +27,7 @@ margin-left: 20%;
 
 #sidebar-left{
 	width: 11%;
-	height: 500px;
+	height: 177px;
 	margin-left: 20%;
 	margin-top: -26px;
 	padding-top:0px;
@@ -48,7 +48,7 @@ margin-left: 20%;
 	margin-left:5px;
 	float: left;
 /* 	border: 2px solid #bcbcbc; */
-	height: 100%;
+	height: 613px;
 	z-index: -1;
 	
 	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 

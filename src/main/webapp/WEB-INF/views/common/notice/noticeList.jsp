@@ -12,7 +12,7 @@
 
 
 
-
+<title>공지사항 리스트 | 고객센터 - 책사조</title>
 	<!-- 페이지 타이틀 -->
 	<h1 class="h1_notice">공지사항</h1>
 
@@ -102,7 +102,7 @@
 	<c:if test="${userid eq 'admin' }">
 		<div class="btn">
 			<button type="button">
-				<a href="noticeWriteView" style="color: black;">글쓰기</a>
+				<a href="noticeWriteView" style="color: black; font-size: 13px;">글쓰기</a>
 			</button>
 		</div>
 	</c:if>

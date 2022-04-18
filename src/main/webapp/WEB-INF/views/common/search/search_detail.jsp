@@ -460,11 +460,14 @@ var sessionId = '<%=userId%>';
 			</div>
 		</c:if>
 
+<<<<<<< HEAD
+=======
 		<%-- 	<div>
 		<h5>${userid }</h5>
 		<h5>${admin }</h5>
 	</div> --%>
 
+>>>>>>> d3049cf2f98755a211e96d2aec6c1f1c13008a67
 
 		<!-- 리뷰작성 게시판 -->
 		<!-- <a name="fixTag" style="position: absolute; top: 500px"/> -->

@@ -22,7 +22,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" style="font-size: small;  text-align: left;" href="#">·중고장터</a>
+    <a class="nav-link" style="font-size: small;  text-align: left;" href="http://localhost:9007/booksajo/mainStore1">·매장안내</a>
   </li>
   
   <li class="nav-item">
