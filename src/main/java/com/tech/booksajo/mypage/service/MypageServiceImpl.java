@@ -77,13 +77,14 @@ public class MypageServiceImpl implements MypageService {
 	public List<Token> komoran(List<Map<String, Object>> getbuylist) {
 		// [책 리스트가져가와서 책 제목에서 형태소 분석하기 연계 세트]
 
-		for (Map<String, Object> map : getbuylist) {
+/*		for (Map<String, Object> map : getbuylist) { //확인완료
 			// 리스트 내용 꺼내보기 제대로 들어갔나
 			System.out.println("getbuylist:" + map);
-		}
+		}*/
 
 		// 책 리스트 isbn에서 책 제목 가져오기..네이버 api이용해보쟈.. => 이클립스에서 출력확인함
 
+		List<Token> adtokenList = new ArrayList<Token>();
 		List<Token> tokenList = new ArrayList<Token>();
 		String isbn = "";
 		for (int i = 0; i < getbuylist.size(); i++) {
@@ -162,10 +163,12 @@ public class MypageServiceImpl implements MypageService {
 				//가져가야할것.. isbn
 				mmapper.addtitle(isbn13);
 				
-				//테이블 확인해보면 다 isbn에 맞게 타이틀 들어갔음.. 제목
+				//의도: 디비 테이블에 책제목이 포함안되있으니 일일히 다 넣어주는 작업을 해준다. 
+				
+				//디비 테이블 확인해보면 다 isbn에 맞게 타이틀 들어갔음.. 
 				
 				
-				// 책 제목 넣어주기
+				// 책 제목 에서 토큰 뽑아내기 작업
 				titlestr=titleobj.toString();
 				String strToAnalyze = titlestr;
 
@@ -178,38 +181,53 @@ public class MypageServiceImpl implements MypageService {
 
 				// 토큰으로 리스트로 받기..
 				
-				 tokenList = analyzeResultList.getTokenList(); 
-/*
-				 for (Token token : tokenList) { 
+				// tokenList = analyzeResultList.getTokenList(); 
+				 tokenList.addAll(analyzeResultList.getTokenList());
+				 
+/*				 for (Token token : tokenList) {  //모든 제목에서 토큰 얻은것 확인함.
 				 System.out.format("(%2d, %2d) %s/%s\n", token.getBeginIndex(),
 				 token.getEndIndex(), token.getMorph(), token.getPos()); 
 				 
-				 }
-				*/
+				 int beginIndex=token.getBeginIndex();
+				 int endIndex=token.getEndIndex();
+				 String morph=token.getMorph();
+				 String pos=token.getPos();
+				 
+				 }*/
+				 
+				 //토큰 갯수 확인해보기
+				 
+				 System.out.println("토큰사이즈:"+tokenList.size());
+				 
 				 
 				// 결과는 여러게 책이니까 스트링타입 리스트로 보내줘야겠지..
 
 				//strlist.add(analyzeResultList.getPlainText());
-
-			} catch (Exception e) {
+	 
+				 
+				 
+			}catch (Exception e) {
 				System.out.println("--���몄�� ");
 				System.out.println(e);
 			}
-
 		}
 
+		//System.out.println("전체 토큰사이즈:"+tokenList.size()); //토큰갯수 9로 나오는 걸로봐서 마지막것만 들어오는것같네.. 추가되서 다 들어와야 하는데.
+		//수정 후 102개 넘게 된거보니 다 들어옴 확인
+		
 		return tokenList;
 	}
 
 	@Override
-	public ArrayList<String> getkeyword(List<Map<String, Object>> getbuylist) throws Exception {
+	public ArrayList<Object> getkeyword(List<Map<String, Object>> getbuylist) throws Exception {
 		// isbn리스트에서 키워드 뽑아보는 작업
 
 		// ArrayList<Object> keywordlist = new ArrayList<Object>();
 		System.out.println("getkeyword매소드 들어옴");
-		ArrayList<String> keylist = new ArrayList<String>();
+		ArrayList<Object> keylist = new ArrayList<Object>();
+		ArrayList<Integer> keylistSize = new ArrayList<Integer>();
 		JSONArray jarr = null;
-		
+
 
 		String isbn13 = "";
 		for (int i = 0; i < getbuylist.size(); i++) {
@@ -224,7 +242,7 @@ public class MypageServiceImpl implements MypageService {
 
 			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
 
-			try {
+			try { //응답결과  -> 확인
 
 				String jstr = bf.readLine();
 
@@ -236,7 +254,7 @@ public class MypageServiceImpl implements MypageService {
 
 				JSONObject jsonObj = (JSONObject) obj;
 
-				// System.out.println(jsonObj.get("response"));
+				//System.out.println(jsonObj.get("response"));
 
 				Object responseObj = jsonObj.get("response");
 				JSONObject json1 = (JSONObject) responseObj;
@@ -246,6 +264,8 @@ public class MypageServiceImpl implements MypageService {
 				// System.out.println("json1.get아이템:" + json1.get("items"));
 
 				jarr = (JSONArray) json1.get("items");
+				
+				//System.out.println(json1.get("items"));
 				//System.out.println("jarr의 사이즈:" + jarr.size());
 				//System.out.println("getbuylist사이즈:" + getbuylist.size());
 				
@@ -264,15 +284,18 @@ public class MypageServiceImpl implements MypageService {
 				
 				//3반복이 추가가 아니라...꺼내면서 넣어줘야하는듯.. 틀린이유... 계속 같은게 들어간이유. for 반복문이 아니라 요소를 꺼내주는 foreach를 써야했음
 				
-				for (Object object : jarr) {
-					
-					JSONObject jj = (JSONObject)object;
-					System.out.println("키워드뽑기:"+jj.get("keyword").toString());
-					String jjstr=jj.get("keyword").toString();
-					keylist.add(jjstr);
+				for (int z = 0; i < jarr.size(); z++) {
+					JSONObject str=(JSONObject)jarr.get(z);
+					//System.out.println(jarr.get(z));
+					//System.out.println("str:"+str);
+					JSONObject str2=(JSONObject)str.get("item");
+					//System.out.println("str2:"+str2.get("word"));
+					keylist.add(str2);
+					keylistSize.add(keylist.size());
 				}
 				
-				jarr.clear();
+				keylist.clear();
+				keylistSize.clear();
 				
 			} catch (Exception e) {
 				
@@ -289,9 +312,14 @@ public class MypageServiceImpl implements MypageService {
 
 	@Override
 	public ArrayList<String> getcate(List<Map<String, Object>> getbuylist) {
-		//도서구매 리스트에서 카테고리 대 .중.소 카테고리 뽑아서 리스트에 담아서 보내주기
 		
-		String isbn = "";
+		
+		System.out.println("getcate매소드 들어옴");
+		
+		//도서구매 리스트에서 카테고리 대 .중.소 카테고리 뽑아서 리스트에 담아서 보내주기 -> 문제 요청에서 카테고리 사용할수있지 리스폰에서 카테고리 받아오는게 없다. -> 도서나루 이용해야할덧.
+		
+		
+/*		String isbn = "";
 		for (int i = 0; i < getbuylist.size(); i++) {//반복문... 반복시킨다	
 			isbn = getbuylist.get(i).toString().substring(6, 19);
 
@@ -300,7 +328,7 @@ public class MypageServiceImpl implements MypageService {
 
 			try {
 
-				/* �닿��� ��諛���. 9788968481475(8968481474) */
+				 �닿��� ��諛���. 9788968481475(8968481474) 
 				// String text = URLEncoder.encode("안녕", "UTF-8");
 				String postParams = "d_isbn=" + isbn;
 				String apiURL = "https://openapi.naver.com/v1/search/book_adv.json?" + postParams;
@@ -339,6 +367,17 @@ public class MypageServiceImpl implements MypageService {
 				JSONArray jsonarr = (JSONArray) jsonobj.get("items");
 		
 			
+				for (int z = 0; i < jsonarr.size(); z++) {
+					JSONObject str=(JSONObject)jsonarr.get(z);
+					//System.out.println(jsonarr.get(z));
+					System.out.println("str:"+str);
+					JSONObject str2=(JSONObject)str.get("item");
+					//System.out.println("str2:"+str2.get("word"));
+					keylist.add(str2);
+					keylistSize.add(keylist.size());
+				}
+				
+				
 				
 				
 				
@@ -349,7 +388,80 @@ public class MypageServiceImpl implements MypageService {
 		}
 		
 		
-		return null;
+		return null;*/
+		
+		ArrayList<Object> catelist = new ArrayList<Object>();
+		ArrayList<Integer> catelistSize = new ArrayList<Integer>();
+		JSONArray jarr = null;
+		
+		
+		String isbn13 = "";
+		for (int i = 0; i < getbuylist.size(); i++) {
+			//여기서는 요청시에 isbn13이 아니라 10자리가 들어감 조정하기
+			isbn13 = getbuylist.get(i).toString().substring(6, 19);
+
+			// 도서나루접속    -> 카테고리 응답나오는 주소로
+			//http://data4library.kr/api/loanItemSrch?authKey=[발급받은키]&startDt=2017-01-01&endDt=2017-03-27&gender=0&from_age=6&to_age=10&region=11;22&addCode=0&kdc=6&pageNo=1&pageSize=10
+			//http://data4library.kr/api/loanItemSrch?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2&addCode=9788960515529&pageNo=1&pageSize=10&format=json
+			//http://data4library.kr/api/srchDtlList?authKey=[발급받은키]&isbn13=9788972756194&loaninfoYN=Y&displayInfo=age
+
+			String serviceKey = "http://data4library.kr/api/srchDtlList?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2";
+			String urlStr = serviceKey + "&addCode=" + isbn13 + "&format=json";
+
+			URL url = new URL(urlStr);
+
+			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream()));
+
+			try { //응답결과  -> 확인
+
+				String jstr = bf.readLine();
+
+				String strJson = jstr;
+
+				JSONParser jsonParser = new JSONParser();
+
+				Object obj = jsonParser.parse(strJson);
+
+				JSONObject jsonObj = (JSONObject) obj;
+
+				//System.out.println(jsonObj.get("response"));
+
+				Object responseObj = jsonObj.get("response");
+				JSONObject json1 = (JSONObject) responseObj;
+
+				System.out.println();
+
+				// System.out.println("json1.get아이템:" + json1.get("items"));
+
+				jarr = (JSONArray) json1.get("items");
+				
+
+				//3반복이 추가가 아니라...꺼내면서 넣어줘야하는듯.. 틀린이유... 계속 같은게 들어간이유. for 반복문이 아니라 요소를 꺼내주는 foreach를 써야했음
+				
+				for (int z = 0; i < jarr.size(); z++) {
+					JSONObject str=(JSONObject)jarr.get(z);
+					//System.out.println(jarr.get(z));
+					//System.out.println("str:"+str);
+					JSONObject str2=(JSONObject)str.get("item");
+					//System.out.println("str2:"+str2.get("word"));
+					catelist.add(str2);
+					catelistSize.add(catelist.size());
+				}
+				
+				catelist.clear();
+				catelistSize.clear();
+				
+			} catch (Exception e) {
+				
+			}
+				
+				
+			
+
+		}
+
+		return catelist;
+			
 	}
 
 	@Override

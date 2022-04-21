@@ -23,7 +23,7 @@ public interface MypageService  {
 	void deletecollect(String userID, String isbn);
 	List<Map<String, Object>> getbuy(String userID);
 	List<Token> komoran(List<Map<String, Object>> getbuylist);
-	ArrayList<String> getkeyword(List<Map<String, Object>> getbuylist) throws Exception;
+	ArrayList<Object> getkeyword(List<Map<String, Object>> getbuylist) throws Exception;
 	ArrayList<String> getcate(List<Map<String, Object>> getbuylist);
 	List<Token> tellcate(List<Token> strlist);
 

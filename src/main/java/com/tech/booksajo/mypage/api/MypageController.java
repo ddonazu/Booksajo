@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -205,20 +206,22 @@ public class MypageController {
 		
 		List<Map<String,Object>> getbuylist=new ArrayList<Map<String,Object>>(mypageService.getbuy(userID));
 		
-		for (Map<String, Object> map2 : getbuylist) {
+/*		for (Map<String, Object> map2 : getbuylist) { //확인완료
 			System.out.println("getbuylist내용물 꺼내보기:"+map2.toString());
 		}
+		*/
 		
-		
-		//책 제목에서 형태소 분석.. 명사 추출 ->한줄 텍스트로 받아볼것임
+		//책 제목에서 형태소 분석.. 명사 추출 ->한줄 텍스트로 받아볼것임(완료) ->사용하기편하게 토큰으로 받아오기(완료)
 		List<Token> strlist=new ArrayList<Token>();
 		strlist=mypageService.komoran(getbuylist);
 		
-		for (Token token : strlist) {
+		System.out.println("strlist 갯수:"+strlist.size());
+		
+/*		for (Token token : strlist) {
 			 System.out.format("(%2d, %2d) %s/%s\n", token.getBeginIndex(),
 			 token.getEndIndex(), token.getMorph(), token.getPos()); 
 		}
-		
+		*/
 
 		
 		//2.구매 책에서 키워드 뽑아내는 서비스 (3개 뽑기) 
@@ -226,13 +229,16 @@ public class MypageController {
 		/*키워드는 ..도서나루 api에서밖에 없으니까 도서나루 호출..*/
 		
 		
-		ArrayList<String> keylist=new ArrayList<String>();
+		ArrayList<Object> keylist=new ArrayList<Object>();
 		keylist=mypageService.getkeyword(getbuylist);
 		
 		
-		for (String string : keylist) {
-			System.out.println("keylist꺼내기:"+keylist);
-		}
+		for (Object string : keylist) {
+			System.out.println(string);
+/*				JSONObject str=(JSONObject)string;
+				JSONObject str2=(JSONObject)str.get("word");
+			//System.out.println("keylist꺼내기:"+string);
+*/		}
 		
 		
 		//리스트 내용 없애기

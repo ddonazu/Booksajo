@@ -179,7 +179,6 @@ public class SearchServiceImpl implements SearchService {
 				System.out.println(jarr.get(i));
 				keywordlist.add(jarr.get(i));
 				sv.setWordlist(keywordlist);
-
 			}
 
 		} catch (
