@@ -82,4 +82,27 @@
 		
 	</insert>
 
+	
+	<select id="getmychart" resultType="map">
+		select
+		*
+		from
+		MYSTATISTICS
+	</select>
+
+
+	<insert id="insertcount" parameterType="map">
+	
+	</insert>
+
+	<update id="updatecount" parameterType="map">
+	
+	</update>
+
+
+	<select id="getcount" resultType="Integer">
+		select count()
+	</select>
+
+
 </mapper>

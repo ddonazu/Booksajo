@@ -24,7 +24,10 @@ public interface MypageService  {
 	List<Map<String, Object>> getbuy(String userID);
 	List<Token> komoran(List<Map<String, Object>> getbuylist);
 	ArrayList<Object> getkeyword(List<Map<String, Object>> getbuylist) throws Exception;
-	ArrayList<String> getcate(List<Map<String, Object>> getbuylist);
+	ArrayList<Integer> getcate(List<Map<String, Object>> getbuylist) throws Exception;
 	List<Token> tellcate(List<Token> strlist);
+	void nounCount(List<Token> strlist, ArrayList<Object> keylist, ArrayList<Integer> catelist,String userID);
+	List<Map<String,Object>> getmychart(String userID);
+
 
 }

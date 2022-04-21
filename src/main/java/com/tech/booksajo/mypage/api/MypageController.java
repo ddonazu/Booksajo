@@ -217,6 +217,8 @@ public class MypageController {
 		
 		System.out.println("strlist 갯수:"+strlist.size());
 		
+		
+		
 /*		for (Token token : strlist) {
 			 System.out.format("(%2d, %2d) %s/%s\n", token.getBeginIndex(),
 			 token.getEndIndex(), token.getMorph(), token.getPos()); 
@@ -232,58 +234,92 @@ public class MypageController {
 		ArrayList<Object> keylist=new ArrayList<Object>();
 		keylist=mypageService.getkeyword(getbuylist);
 		
-		
-		for (Object string : keylist) {
+/*		확인완료
+		for (Object string : keylist) { 
 			System.out.println(string);
-/*				JSONObject str=(JSONObject)string;
+				JSONObject str=(JSONObject)string;
 				JSONObject str2=(JSONObject)str.get("word");
 			//System.out.println("keylist꺼내기:"+string);
-*/		}
+		}
+	*/	
+		
+
 		
 		
-		//리스트 내용 없애기
+		//3.구매 책에서 카테고리 뽑아내는 서비스(대 . 중 . 소)   -> 1.카테고리명 얻는거 가능하고 2.kdc번호 얻는거 가능
+		//이것도 도서정보나루 에서 카테고리 뽑아야겠다.(네이버 API는 결과에서 카테고리정보 보여주는게 없음) 
 		
-		keylist.clear();
-		
-		
-		//3.구매 책에서 카테고리 뽑아내는 서비스(대 . 중 . 소)   -> 네이버 API는 무리.. 결과에서 카테고리 보여주는게 없으니.. 
-		//이것도 도서정보나루 에서 카테고리 뽑아야겠다.
-		
-		ArrayList<String> catelist=new ArrayList<String>();
+		ArrayList<Integer> catelist=new ArrayList<Integer>();
+		ArrayList<Integer> catelistSize=new ArrayList<Integer>();
 		catelist=mypageService.getcate(getbuylist);
 		
-		for (String string : catelist) {
-			System.out.println("catelist꺼내기:"+catelist);
+/*		for (Object string : catelist) { //확인완료
+			System.out.println("catelist꺼내기:"+string);
 		}
+		*/
+
+
+		
+		//4.코모란 형태소 분석 서비스 1~3번 결과에서 "명사추출"
 		
 		
-		//4.코모란 형태소 분석 서비스 1~3번 결과에서 명사추출
+		
+		//1번 구매한 책목록의 책 제목!! 에서 형태소 분석  
+		//->위에서 형태소분석 완료함 -> 명사부분만 가져오면됌
+		
+		
+		//2번 구매한 첵목록의 키워드에서 !! 형태소 분석
+		//->키워드 자체가 명사로만 되어있어 분석안해도됨
+		
+		
+		//3번 구매한 책목록의 카테고리에서!! 형태소 분석
 		
 		
 		
 		
-		//5.KDC카테고리와 비교해서 카테고리와 매치시켜주고 그 매치된 카테고리 리스트에 담아서 가져옴	
+		//(5.KDC카테고리와 비교해서 구매한 책의 카테고리와 조인으로 매치시켜보고 -> 그 매치된 카테고리 번호와 이름 리스트에 담아서 게시판형태로 정보 가져옴) -> 필요가 없을것같음 위에서 kdc번호 바로 추출가능	
 		
+/*		
 		List<Token> telllist=new ArrayList<Token>();
 		
 		telllist=mypageService.tellcate(strlist);
+		*/
 		
 		
 		//6.중목 명사 카운트 올리는 서비스 
+		//이퀄함수이용 . 위에서 결과 리턴받은  모든 명사 리스트 다 가지고들어가서 사용하기 ->DB에다가 카운트 결과 입력해주기
+		
+		
+		/* 테이블정보	
+		 * MYSTATISTICS
+			kdc number,
+			user_id varchar2(20),
+			count number,
+			weight number,
+		 */
+		
+		
+		mypageService.nounCount(strlist,keylist,catelist,userID);
+		
+		
 		
 		
 		
 
+		//7. 7번에서 얻은 DB에다가 카운트 받은 결과를  -> 그래프로 웹상에 표현해주기
+		//springwebt_chart프로젝트 참고(막대,파이,도넛)
+		//select 문으로 디비에서 테이블 가져오고 -> map으로 제이슨타입으로 받을수있게해주기 보내주기-> jsp페이지에서 자바스크립트로 받아오기
 		
-		//7. 그래프에 쓰일 JSON타입으로 값을 변환해주는 서비스
+		mypageService.getmychart(userID);
 		
 		
-		
-		
-		
-		//8. 7번 ->그래프로 표시
+		//작업다 끝나고 리스트 내용 비우기 -> 다음실행시 쌓이지않도록
 		
 		strlist.clear();
+		keylist.clear();
+		catelist.clear();
+		catelistSize.clear();
+		
 		
 		return "mystatistics";
 	}
