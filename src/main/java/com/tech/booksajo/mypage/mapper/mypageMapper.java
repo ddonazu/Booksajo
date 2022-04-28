@@ -25,4 +25,5 @@ public interface mypageMapper {
 	void updatecount(String userID, String noun);
 	int getcount(String userID, String noun);
 	void updatecount2(String userID, Integer no);
+	void insertcount(String userID, String noun);
 }

@@ -396,6 +396,9 @@ public class MypageServiceImpl implements MypageService {
 	public void nounCount(List<Token> strlist, ArrayList<Object> keylist, ArrayList<Integer> catelist, String userID) {
 		// 1.명사일치하면 카운트 올려주는 서비스. 2.관심키워드 명사형태로 보여주는 것도 (잡플래닛 평점 키워드같이보이도록.. 몇개만)
 		//strlist: 도서제목에서 명사추출 리스트     keylist:도서 키워드에서 명사추출 리스트   catelist:도서 카테고리에서 kdc숫자 추출 리스트
+
+		System.out.println("nounCount매소드 들어옴");
+		
 		
 		// << strlist: 도서제목에서 명사추출 리스트  >> 
 		// 1.카테고리나 키워드 명 일 경우 : kdc랑 조인해서 해당 카테고리에 카운트 올리고   2. kdc일경우 카테고리 번호일경우 가장 앞자리와 중간까지 -> kdc숫자 기준으로 카운트 올려주고 첫째랑 두째자리숫자까지만 반영하여 카운트 업
@@ -404,7 +407,6 @@ public class MypageServiceImpl implements MypageService {
 		String hung = "";
 		String noun = "";
 
-		
 		for (Token token : strlist) { // 토큰에서 명사만 꺼내기
 			// System.out.format("(%2d, %2d) %s/%s\n", token.getBeginIndex(),
 			// token.getEndIndex(), token.getMorph(),token.getPos());
@@ -426,10 +428,22 @@ public class MypageServiceImpl implements MypageService {
 				//책제목 명사를 통한 명사로 -> 카테고리 조인해서 kdc 번호찾기  -> 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기 (생각 더 해보기)
 				
 				
-				//그럼 일단 셀렉트로 가져와보고 셀렉트 값이 없을떄 있을때를 조건으로 나눠서 업데이트하던가 추가한던가 해서 경로 진행 만들어주기 
+				//그럼 일단 셀렉트로 가져와보고 셀렉트 값이 없을때 있을때를 조건으로 나눠서 업데이트하던가 추가한던가 해서 경로 진행 만들어주기 
 				
 				int count=mmapper.getcount(userID,noun);
 				
+				if (count==1) {
+					// 존재 -> 해당 kdc에 카운드 +1 하기
+					
+					mmapper.updatecount(userID, noun);
+					
+				}else if(count==0) {
+					// 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기 (생각 더 해보기)
+					
+					mmapper.insertcount(userID, noun);
+					
+				}else //기타 널이라던가.. 추가적 상황
+					System.out.println("문제발생");
 				
 				mmapper.updatecount(userID,noun);
 			}

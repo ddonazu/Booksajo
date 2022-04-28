@@ -253,7 +253,7 @@ public class MypageController {
 		ArrayList<Integer> catelistSize=new ArrayList<Integer>();
 		catelist=mypageService.getcate(getbuylist);
 		
-/*		for (Object string : catelist) { //확인완료
+		/*	for (Object string : catelist) { //확인완료
 			System.out.println("catelist꺼내기:"+string);
 		}
 		*/
@@ -279,7 +279,7 @@ public class MypageController {
 		
 		//(5.KDC카테고리와 비교해서 구매한 책의 카테고리와 조인으로 매치시켜보고 -> 그 매치된 카테고리 번호와 이름 리스트에 담아서 게시판형태로 정보 가져옴) -> 필요가 없을것같음 위에서 kdc번호 바로 추출가능	
 		
-/*		
+		/*		
 		List<Token> telllist=new ArrayList<Token>();
 		
 		telllist=mypageService.tellcate(strlist);
@@ -300,8 +300,6 @@ public class MypageController {
 		
 		
 		mypageService.nounCount(strlist,keylist,catelist,userID);
-		
-		
 		
 		
 		

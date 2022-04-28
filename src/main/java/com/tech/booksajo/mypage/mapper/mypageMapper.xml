@@ -96,12 +96,20 @@
 	</insert>
 
 	<update id="updatecount" parameterType="map">
-	
+	update mystatistics set count2=count2+1 where kdc=(select  a.kdcno
+	from mystatistics b inner join category a
+	on b.#{param2}=a.bookcategory
+	group by b.user_id,a.kdcno
+	having b.user_id=#{param1})
 	</update>
 
 
 	<select id="getcount" resultType="Integer">
-		select count()
+	select  COUNT (COUNT (*)) count2
+	from mystatistics b inner join category a
+	on b.#{param2}=a.bookcategory
+	group by b.count2,b.user_id
+	having b.user_id=#{param1}
 	</select>
 
 
