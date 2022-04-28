@@ -395,13 +395,14 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public void nounCount(List<Token> strlist, ArrayList<Object> keylist, ArrayList<Integer> catelist, String userID) {
 		// 1.명사일치하면 카운트 올려주는 서비스. 2.관심키워드 명사형태로 보여주는 것도 (잡플래닛 평점 키워드같이보이도록.. 몇개만)
-		//strlist: 도서제목에서 명사추출 리스트     keylist:도서 키워드에서 명사추출 리스트   catelist:도서 카테고리에서 kdc숫자 추출 리스트
+		// strlist: 도서제목에서 명사추출 리스트 keylist:도서 키워드에서 명사추출 리스트 catelist:도서 카테고리에서 kdc숫자
+		// 추출 리스트
 
 		System.out.println("nounCount매소드 들어옴");
-		
-		
-		// << strlist: 도서제목에서 명사추출 리스트  >> 
-		// 1.카테고리나 키워드 명 일 경우 : kdc랑 조인해서 해당 카테고리에 카운트 올리고   2. kdc일경우 카테고리 번호일경우 가장 앞자리와 중간까지 -> kdc숫자 기준으로 카운트 올려주고 첫째랑 두째자리숫자까지만 반영하여 카운트 업
+
+		// << strlist: 도서제목에서 명사추출 리스트 >>
+		// 1.카테고리나 키워드 명 일 경우 : kdc랑 조인해서 해당 카테고리에 카운트 올리고 2. kdc일경우 카테고리 번호일경우 가장 앞자리와
+		// 중간까지 -> kdc숫자 기준으로 카운트 올려주고 첫째랑 두째자리숫자까지만 반영하여 카운트 업
 
 		// 반복문 하면서 카운트 올려야 겠네. 리스트에서 명사 하나나올때마다 비교해서 넣어줘야하니까..
 		String hung = "";
@@ -415,60 +416,89 @@ public class MypageServiceImpl implements MypageService {
 			noun = token.getMorph();
 
 			System.out.println("hung:" + hung + " noun:" + noun);
-			System.out.println("0~2까지 형태이름:"+hung.substring(0, 2));
+			System.out.println("0~2까지 형태이름:" + hung.substring(0, 2));
 
-			if (hung.substring(0, 2).equals("NN")) { // 형태소가 NNP or NNG일때 틀린이유.. 0이상 1미만이니까. 미만이니까.. 2로 해줘야했음  
-				//그리고 hung.substring(0, 2).equals("NN") 로하니까 됨 hung.substring(0, 2)=="NN"으로 하니까 안됌...
+			if (hung.substring(0, 2).equals("NN")) { // 형태소가 NNP or NNG일때 틀린이유.. 0이상 1미만이니까. 미만이니까.. 2로 해줘야했음
+				// 그리고 hung.substring(0, 2).equals("NN") 로하니까 됨 hung.substring(0, 2)=="NN"으로 하니까
+				// 안됌...
 
 				System.out.println("들어옴");
 				System.out.println("형태:" + hung + "명사뽑기:" + noun);
 
-				
-				//책제목 명사를 통한 명사로 -> 카테고리 조인해서 kdc 번호찾기  -> 존재 -> 해당 kdc에 카운드 +1 하기
-				//책제목 명사를 통한 명사로 -> 카테고리 조인해서 kdc 번호찾기  -> 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기 (생각 더 해보기)
-				
-				
-				//그럼 일단 셀렉트로 가져와보고 셀렉트 값이 없을때 있을때를 조건으로 나눠서 업데이트하던가 추가한던가 해서 경로 진행 만들어주기 
-				
-				int count=mmapper.getcount(userID,noun);
-				
-				if (count==1) {
+				// 책제목 명사를 통한 명사로 -> 카테고리 조인해서 kdc 번호찾기 -> 존재 -> 해당 kdc에 카운드 +1 하기
+				// 책제목 명사를 통한 명사로 -> 카테고리 조인해서 kdc 번호찾기 -> 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기
+				// (생각 더 해보기)
+
+				// 그럼 일단 셀렉트로 가져와보고 셀렉트 값이 없을때 있을때를 조건으로 나눠서 업데이트하던가 추가한던가 해서 경로 진행 만들어주기
+
+				int count = mmapper.getcount(userID, noun);
+
+				if (count == 1) {
 					// 존재 -> 해당 kdc에 카운드 +1 하기
-					
+
 					mmapper.updatecount(userID, noun);
-					
-				}else if(count==0) {
+
+				} else if (count == 0) {
 					// 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기 (생각 더 해보기)
-					
+
 					mmapper.insertcount(userID, noun);
-					
-				}else //기타 널이라던가.. 추가적 상황
+
+				} else {// 기타 널이라던가.. 추가적 상황
+
 					System.out.println("문제발생");
-				
-				mmapper.updatecount(userID,noun);
+
+					// mmapper.expectcount(userID,noun);
+				}
 			}
 		}
 
-		// << keylist:도서 키워드에서 명사추출 리스트  >> 
+		// << keylist:도서 키워드에서 명사추출 리스트 >>
 		
 		
 		
-		
-		// << catelist:도서 카테고리에서 kdc숫자 추출 리스트 >>
-				
-			for (Integer no : catelist) { //리스트 내용 빼면서 카운트 올려 주기
-				
-				mmapper.updatecount2(userID,no);
-			}
-		
+		for (int i = 0; i < keylist.size(); i++) {
+
+			String keynoun=(String)keylist.get(i);
 			
-		
-		
+			int count=mmapper.getcount(userID, keynoun);
+					
+			if (count == 1) {
+				// 존재 -> 해당 kdc에 카운드 +1 하기
+
+				mmapper.updatecount(userID, keynoun);
+
+			} else if (count == 0) {
+				// 없음 -> 테이블에 레이블 없을때 사용할수있는 함수로 처리하기 (생각 더 해보기)
+
+				mmapper.insertcount(userID, keynoun);
+
+			} else {// 기타 널이라던가.. 추가적 상황
+
+				System.out.println("문제발생");
+
+				// mmapper.expectcount(userID,noun);
+			}
+
+		}
+		// << catelist:도서 카테고리에서 kdc숫자 추출 리스트 >> 
+
+		for (Integer no : catelist) { // 리스트 내용 빼면서 카운트 올려 주기
+			//kdc 숫자3자리인데.. 첫째숫자 카운트올리고 두째숫자 카운트도 올리는것으로 사용하는것으로 
+			mmapper.updatecount2(userID, no);
+			mmapper.updatecount3(userID, no);
+		}
 	}
 
 	public List<Map<String, Object>> getmychart(String userID) {
-		// mychart에 쓰일 테이블 가져오기
+		// mychart에 쓰일 테이블 정보가져오기
+		//셀렉트로 가져온다.. 위에서 열심히 카운트한 테이블
+		
 		return mmapper.getmychart(userID);
+		
+		
+		
+		
+		
 	}
 
 }

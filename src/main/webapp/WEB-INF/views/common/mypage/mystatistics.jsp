@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF=8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/mypage/mystatistics.css">
-
 <h3>MYSTATISTICS</h3>
 
 <h4>내 통계 페이지</h4>
@@ -53,7 +53,7 @@ $(document)
 					
 					
 					
-					$('#collectiontable').html(html);
+					$('#favolist').html(html);
 					//console.log(result[0].MYLINE_TITLE);
 					//console.log(result[1].MYLINE_TITLE);
 					//언디파인 -> 데이블 필드 대문자로 써줘야함...
@@ -63,5 +63,44 @@ $(document)
 				
 		}
 		
+		function getchart_info(sessionId) {
+			
+			var userId = sessionId;
+			
+			$.ajax({
+				type : "POST",
+				url : "/booksajo/mychart_info",
+				data : JSON.stringify({
+					userId : userId
+				}),
+				datatype : 'json',
+				contentType : 'application/json; charset=utf-8',
+				success : function(result) {
+				
+					
+					console.log("갯마이차트 리턴완료");
+					console.log(result);
+					console.log(result.KDC);
+					
+					//제대로 리턴된거 확인후 -> 차트로 보여주는 작업진행하기
+					
+					
+
+					
+				}
+				});
+			
+			
+		}
+		
 	});
 </script>
+
+
+<div id="favolist">
+관심 분야. 카테고리 나타내기..잡플래닛 평점처럼..
+</div>
+
+<div id="mychart">
+차트.리스트 차트표현
+</div>

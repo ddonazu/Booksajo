@@ -92,7 +92,11 @@
 
 
 	<insert id="insertcount" parameterType="map">
-	
+	insert into mystatistics(kdc,user_id,count2,noun) (select  a.kdcno,b.user_id,b.count2+1,b.noun
+	from mystatistics b inner join category a
+	on b.#{param2}=a.bookcategory
+	group by b.count2,b.user_id,a.kdcno,b.noun
+	having b.user_id=#{param1})
 	</insert>
 
 	<update id="updatecount" parameterType="map">
@@ -105,12 +109,28 @@
 
 
 	<select id="getcount" resultType="Integer">
-	select  COUNT (COUNT (*)) count2
+	select COUNT (COUNT (*)) count2
 	from mystatistics b inner join category a
 	on b.#{param2}=a.bookcategory
 	group by b.count2,b.user_id
 	having b.user_id=#{param1}
 	</select>
 
+	<update id="updatecount2" parameterType="map">
+	update mystatistics set count2=count2+1 where kdc=(select kdcno
+	from category where kdcno='_3%');
+	</update>
+
+
+	<update id="updatecount3" parameterType="map">
+	update mystatistics set count2=count2+1 where kdc=(select kdcno
+	from category where kdcno='_3%');
+	</update>
+
+	<select id="getmychart" resultType="map">
+		select
+		kdc,noun,count2
+		from MYSTATISTICS where user_id=#{param1}
+	</select>
 
 </mapper>

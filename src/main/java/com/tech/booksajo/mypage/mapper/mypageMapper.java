@@ -21,9 +21,11 @@ public interface mypageMapper {
 	void deletecollect(String userID, String isbn);
 	List<Map<String, Object>> getbuy(String userID);
 	void addtitle(Object isbnobj);
-	List<Map<String, Object>> getmychart(String userID);
 	void updatecount(String userID, String noun);
 	int getcount(String userID, String noun);
 	void updatecount2(String userID, Integer no);
 	void insertcount(String userID, String noun);
+	void updatecount3(String userID, Integer no);
+	List<Map<String, Object>> getmychart(String userID);
+
 }

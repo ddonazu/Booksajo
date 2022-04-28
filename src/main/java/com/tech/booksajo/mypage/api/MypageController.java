@@ -323,6 +323,22 @@ public class MypageController {
 	}
 	
 	
+	
+	@RequestMapping("/mychart_info")
+	@ResponseBody
+	public String mychart_info(HttpServletRequest request,Model model,@RequestBody Map<String,Object> map) throws Exception {
+		
+		System.out.println("mychart_info들어옴================");
+		
+		System.out.println(map.get("userId"));
+		String userID=map.get("userId").toString();
+		
+		return "mystatistics";
+	}
+	
+	
+	
+	
 	@RequestMapping("/memewrite")
 	public String memewrite(HttpServletRequest request,Model model) {
 		System.out.println("memewrite들어왔나요?================");
