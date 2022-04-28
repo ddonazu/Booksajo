@@ -83,12 +83,7 @@
 	</insert>
 
 	
-	<select id="getmychart" resultType="map">
-		select
-		*
-		from
-		MYSTATISTICS
-	</select>
+
 
 
 	<insert id="insertcount" parameterType="map">
